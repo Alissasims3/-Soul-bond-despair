@@ -21,6 +21,7 @@
             </div>
             <div class="quick-actions">
                 <button id="longRestBtn" class="action-btn">Long Rest</button>
+                <button id="resetBtn" class="action-btn reset-btn">Reset Character</button>
                 <button id="saveBtn" class="action-btn">Save</button>
                 <button id="loadBtn" class="action-btn">Load</button>
                 <button id="exportBtn" class="action-btn">Export</button>
@@ -163,12 +164,13 @@
                         <div class="temp-box" data-index="1"></div>
                         <div class="temp-box" data-index="2"></div>
                     </div>
-                    <p class="temp-warning">When temp reaches 3, immediately converts to +1 permanent Despair</p>
+                    <p class="temp-warning">Temp accumulates until Long Rest. Use Resist to spend 3 Resonance for -1 Temp.</p>
                     
                     <!-- New Control Buttons -->
                     <div class="temp-controls">
                         <button id="gainTempBtn" class="temp-btn gain-btn">+1 Temp</button>
                         <button id="gainTempMultiBtn" class="temp-btn gain-multi-btn">+N Temp</button>
+                        <button id="resistBtn" class="temp-btn resist-btn">Resist (-1 Temp)</button>
                         <button id="psychicStainBtn" class="temp-btn psychic-btn">Psychic Stain</button>
                         <button id="clearTempBtn" class="temp-btn clear-btn">Clear Temp</button>
                         <button id="decreaseTempBtn" class="temp-btn decrease-btn" title="DM only">-1 Temp</button>

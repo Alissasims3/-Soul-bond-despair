@@ -138,6 +138,15 @@ class SoulsHarmonyTracker {
             }
         });
         
+        // New buttons
+        document.getElementById('resistBtn').addEventListener('click', () => {
+            this.resistDespair();
+        });
+        
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            this.resetCharacter();
+        });
+        
         // Crawling Choir effects
         document.querySelectorAll('.choir-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -417,41 +426,19 @@ class SoulsHarmonyTracker {
         this.saveState();
     }
     
-    // New Temporary Despair System - follows Xevir rules exactly
+    // New Temporary Despair System - NO automatic conversion
     gainTempDespair(amount = 1, source = 'Manual') {
         const previousTemp = this.state.tempDespair;
-        const previousPerm = this.state.despairScore;
         
-        // Apply the core algorithm: temp += N; while (temp >= 3) { temp -= 3; perm += 1; }
+        // Simply accumulate temp despair without conversion
         this.state.tempDespair += amount;
-        let conversions = 0;
         
-        while (this.state.tempDespair >= 3) {
-            this.state.tempDespair -= 3;
-            this.state.despairScore += 1;
-            conversions++;
-        }
-        
-        // Log the action with detailed information
-        const logMessage = [
-            `${source}: +${amount} temp`,
-            `(${previousTemp}→${this.state.tempDespair} temp`,
-            conversions > 0 ? `, ${conversions} conversion${conversions > 1 ? 's' : ''}` : '',
-            conversions > 0 ? `, ${previousPerm}→${this.state.despairScore} perm)` : ')'
-        ].join('');
-        
+        // Log the action
+        const logMessage = `${source}: +${amount} temp (${previousTemp}→${this.state.tempDespair})`;
         this.addToHistory(logMessage);
         
         // Show notification
-        if (conversions > 0) {
-            this.showNotification(
-                `${conversions} Temporary Despair converted to ${conversions} permanent Despair! Remainder: ${this.state.tempDespair}`,
-                'warning'
-            );
-            this.checkDespairThresholds();
-        } else {
-            this.showNotification(`Gained ${amount} temporary despair (${this.state.tempDespair}/3)`);
-        }
+        this.showNotification(`Gained ${amount} temporary despair (${this.state.tempDespair})`);
         
         this.updateDisplay();
         this.saveState();
@@ -460,17 +447,31 @@ class SoulsHarmonyTracker {
     // Long rest behavior - clear temp only, perm unchanged
     performLongRest() {
         const previousTemp = this.state.tempDespair;
+        const previousPerm = this.state.despairScore;
         
         // Reset resonance points
         this.state.resonancePoints = 10;
         
-        // Clear temporary despair only - permanent despair is unchanged
+        // Convert temp despair to permanent (floor(temp/3))
+        const conversions = Math.floor(this.state.tempDespair / 3);
+        if (conversions > 0) {
+            this.state.despairScore += conversions;
+            this.checkDespairThresholds();
+        }
+        
+        // Clear all temporary despair (including remainder)
         this.state.tempDespair = 0;
         
         this.updateDisplay();
         this.saveState();
-        this.showNotification('Long rest completed! Resonance restored and temporary despair cleared.');
-        this.addToHistory(`Long rest: Resonance restored, temp despair cleared (${previousTemp}→0)`);
+        
+        if (conversions > 0) {
+            this.showNotification(`Long rest: Resonance restored, ${conversions} temp despair converted to permanent, temp cleared.`);
+            this.addToHistory(`Long rest: Resonance restored, ${conversions} conversion${conversions > 1 ? 's' : ''} (${previousPerm}→${this.state.despairScore} perm), temp cleared (${previousTemp}→0)`);
+        } else {
+            this.showNotification('Long rest completed! Resonance restored and temporary despair cleared.');
+            this.addToHistory(`Long rest: Resonance restored, temp despair cleared (${previousTemp}→0)`);
+        }
     }
     
     // Psychic Stain failure - applies damage → temp gain → convert → whisper in order
@@ -483,24 +484,12 @@ class SoulsHarmonyTracker {
             this.showNotification(`You take ${damage} psychic damage!`, 'error');
         }
         
-        // 2) Gain temporary despair and handle conversion
+        // 2) Gain temporary despair (no conversion)
         const previousTemp = this.state.tempDespair;
-        const previousPerm = this.state.despairScore;
         
         this.state.tempDespair += tempGain;
-        let conversions = 0;
-        
-        while (this.state.tempDespair >= 3) {
-            this.state.tempDespair -= 3;
-            this.state.despairScore += 1;
-            conversions++;
-        }
         
         logEntries.push(`+${tempGain} temp despair (${previousTemp}→${this.state.tempDespair})`);
-        if (conversions > 0) {
-            logEntries.push(`${conversions} conversion${conversions > 1 ? 's' : ''} (${previousPerm}→${this.state.despairScore} perm)`);
-            this.checkDespairThresholds();
-        }
         
         // 3) Apply whisper/corruption effect
         logEntries.push(`Whisper: "${whisperText}"`);
@@ -524,6 +513,76 @@ class SoulsHarmonyTracker {
         
         this.updateDisplay();
         this.saveState();
+    }
+    
+    // Resist mechanic: spend 3 Resonance to reduce Temp by 1
+    resistDespair() {
+        if (this.state.resonancePoints < 3) {
+            this.showNotification('Insufficient Resonance! Need 3 to resist.', 'error');
+            return;
+        }
+        
+        if (this.state.tempDespair <= 0) {
+            this.showNotification('No temporary despair to resist!', 'info');
+            return;
+        }
+        
+        const previousResonance = this.state.resonancePoints;
+        const previousTemp = this.state.tempDespair;
+        
+        // Spend 3 resonance and reduce temp by 1
+        this.state.resonancePoints -= 3;
+        this.state.tempDespair -= 1;
+        
+        this.addToHistory(`Resist: -3 resonance (${previousResonance}→${this.state.resonancePoints}), -1 temp despair (${previousTemp}→${this.state.tempDespair})`);
+        this.showNotification('You resist the despair, spending 3 Resonance to reduce Temporary Despair by 1.', 'success');
+        
+        this.updateDisplay();
+        this.saveState();
+    }
+    
+    // Reset character to default state
+    resetCharacter() {
+        if (!confirm('Reset Character: This will restore all values to defaults. Are you sure?')) {
+            return;
+        }
+        
+        const defaultState = {
+            characterName: '',
+            egregorScore: 0,
+            resonancePoints: 0,
+            despairScore: 0,
+            tempDespair: 0,
+            bonds: [null, null, null],
+            bondStates: ['empty', 'empty', 'empty'],
+            divineInfluence: null,
+            memoryFragments: 0,
+            mutations: [],
+            rollHistory: [],
+            deityMutations: {
+                xevir: [],
+                ikris: [],
+                naivara: [],
+                hive: [],
+                choir: []
+            },
+            visionTokens: 0,
+            visionHistory: [],
+            activeInfluences: [],
+            mutationInteractions: [],
+            lastDespairThreshold: 0
+        };
+        
+        this.state = { ...defaultState };
+        
+        this.addToHistory('Character reset: All values restored to defaults');
+        this.showNotification('Character reset successfully! All values restored to defaults.', 'info');
+        
+        this.updateDisplay();
+        this.saveState();
+        
+        // Clear the character name input
+        document.getElementById('characterName').value = '';
     }
     
     // Legacy function - now just calls gainTempDespair(1)
