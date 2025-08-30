@@ -584,6 +584,24 @@ body {
     background: rgba(239, 68, 68, 0.2);
 }
 
+.resist-btn {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.resist-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.reset-btn {
+    border-color: #dc2626;
+    background: rgba(220, 38, 38, 0.1);
+}
+
+.reset-btn:hover {
+    background: rgba(220, 38, 38, 0.2);
+}
+
 .clear-btn {
     padding: 6px 12px;
     background: var(--bg-tertiary);
