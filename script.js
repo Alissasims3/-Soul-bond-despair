@@ -661,12 +661,17 @@ class SoulsHarmonyTracker {
     updateMutationsTable() {
         const tbody = document.getElementById('mutationsBody');
         tbody.innerHTML = this.state.mutations.map(mutation => {
-            const entity = GAME_DATA.DIVINE_ENTITIES[mutation.source];
+            // Handle both old and new mutation formats
+            const severity = mutation.severity || mutation.level || 'Unknown';
+            const source = mutation.deity || mutation.source;
+            const entity = source ? GAME_DATA.DIVINE_ENTITIES[source] : null;
+            const sourceDisplay = entity ? entity.sigil + ' ' + entity.name : (source || 'Unknown');
+            
             return `
                 <tr>
-                    <td>${mutation.level}</td>
-                    <td>${entity ? entity.sigil + ' ' + entity.name : mutation.source}</td>
-                    <td>${mutation.effect}</td>
+                    <td>${severity}</td>
+                    <td>${sourceDisplay}</td>
+                    <td>${mutation.effect || mutation.name || 'No description'}</td>
                     <td>${mutation.date}</td>
                     <td><button onclick="tracker.removeMutation(${mutation.id})" class="clear-btn">Remove</button></td>
                 </tr>
