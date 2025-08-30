@@ -514,6 +514,76 @@ body {
     margin-bottom: 10px;
 }
 
+/* New Temp Despair Controls */
+.temp-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.temp-btn {
+    padding: 6px 12px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background: var(--button-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.temp-btn:hover {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.gain-btn {
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.gain-btn:hover {
+    background: rgba(74, 222, 128, 0.2);
+}
+
+.gain-multi-btn {
+    border-color: #22d3ee;
+    background: rgba(34, 211, 238, 0.1);
+}
+
+.gain-multi-btn:hover {
+    background: rgba(34, 211, 238, 0.2);
+}
+
+.psychic-btn {
+    border-color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+}
+
+.psychic-btn:hover {
+    background: rgba(168, 85, 247, 0.2);
+}
+
+.clear-btn {
+    border-color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.clear-btn:hover {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+.decrease-btn {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    font-size: 0.75rem;
+}
+
+.decrease-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
 .clear-btn {
     padding: 6px 12px;
     background: var(--bg-tertiary);
