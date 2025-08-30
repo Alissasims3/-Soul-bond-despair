@@ -26,7 +26,6 @@
                 <button id="exportBtn" class="action-btn">Export</button>
                 <input type="file" id="importBtn" accept=".json" style="display: none;">
                 <button onclick="document.getElementById('importBtn').click()" class="action-btn">Import</button>
-                <button id="viewToggleBtn" class="action-btn view-toggle">DM View</button>
             </div>
         </div>
 
@@ -169,17 +168,15 @@
                     <!-- New Control Buttons -->
                     <div class="temp-controls">
                         <button id="gainTempBtn" class="temp-btn gain-btn">+1 Temp</button>
-                        <div class="dm-only">
-                            <button id="gainTempMultiBtn" class="temp-btn gain-multi-btn">+N Temp</button>
-                            <button id="psychicStainBtn" class="temp-btn psychic-btn">Psychic Stain</button>
-                            <button id="clearTempBtn" class="temp-btn clear-btn">Clear Temp</button>
-                            <button id="decreaseTempBtn" class="temp-btn decrease-btn" title="DM only">-1 Temp</button>
-                        </div>
+                        <button id="gainTempMultiBtn" class="temp-btn gain-multi-btn">+N Temp</button>
+                        <button id="psychicStainBtn" class="temp-btn psychic-btn">Psychic Stain</button>
+                        <button id="clearTempBtn" class="temp-btn clear-btn">Clear Temp</button>
+                        <button id="decreaseTempBtn" class="temp-btn decrease-btn" title="DM only">-1 Temp</button>
                     </div>
                 </section>
 
                 <!-- Corruption & Madness -->
-                <section class="tracker-section corruption-section dm-only">
+                <section class="tracker-section corruption-section">
                     <h2>Corruption & Madness</h2>
                     <div class="crawling-choir-effects">
                         <h3>🧠 The Crawling Choir</h3>
@@ -202,7 +199,7 @@
         <!-- Bottom Section: Dice Systems and Logs -->
         <div class="bottom-section">
             <!-- Interactive Dice Systems -->
-            <section class="tracker-section dice-section dm-only">
+            <section class="tracker-section dice-section">
                 <h2>Interactive Dice Systems</h2>
                 <div class="dice-container">
                     <div class="dice-group">
@@ -231,7 +228,7 @@
             </section>
 
                 <!-- Enhanced Divine Marks/Mutations System -->
-                <section class="tracker-section mutations-section dm-only">
+                <section class="tracker-section mutations-section">
                     <h2>Divine Marks & Mutations System</h2>
                     
                     <!-- Deity-Specific Mutation Sections -->
