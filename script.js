@@ -30,9 +30,6 @@ class SoulsHarmonyTracker {
             lastDespairThreshold: 0 // Track for auto-rolling
         };
         
-        // Debouncing for rapid clicks
-        this.notificationDebounceTimer = null;
-        
         this.initialize();
     }
     
@@ -41,8 +38,9 @@ class SoulsHarmonyTracker {
         this.generateProgressBars();
         this.generateResonancePool();
         this.generateMemoryBoxes();
-        // Removed auto-loading and auto-saving - tracker now starts fresh
+        this.loadState();
         this.updateDisplay();
+        this.startAutoSave();
     }
     
     setupEventListeners() {
@@ -75,11 +73,6 @@ class SoulsHarmonyTracker {
         
         document.getElementById('importBtn').addEventListener('change', (e) => {
             this.importCharacter(e.target.files[0]);
-        });
-        
-        // View Toggle
-        document.getElementById('viewToggleBtn').addEventListener('click', () => {
-            this.toggleView();
         });
         
         // Resonance spending buttons
@@ -449,22 +442,16 @@ class SoulsHarmonyTracker {
         
         this.addToHistory(logMessage);
         
-        // Debounced notification to prevent spam
-        if (this.notificationDebounceTimer) {
-            clearTimeout(this.notificationDebounceTimer);
+        // Show notification
+        if (conversions > 0) {
+            this.showNotification(
+                `${conversions} Temporary Despair converted to ${conversions} permanent Despair! Remainder: ${this.state.tempDespair}`,
+                'warning'
+            );
+            this.checkDespairThresholds();
+        } else {
+            this.showNotification(`Gained ${amount} temporary despair (${this.state.tempDespair}/3)`);
         }
-        
-        this.notificationDebounceTimer = setTimeout(() => {
-            if (conversions > 0) {
-                this.showNotification(
-                    `${conversions} Temporary Despair converted to ${conversions} permanent Despair! Remainder: ${this.state.tempDespair}`,
-                    'warning'
-                );
-                this.checkDespairThresholds();
-            } else {
-                this.showNotification(`Gained ${amount} temporary despair (${this.state.tempDespair}/3)`);
-            }
-        }, 100); // 100ms debounce
         
         this.updateDisplay();
         this.saveState();
@@ -879,25 +866,6 @@ class SoulsHarmonyTracker {
         
         const toggle = document.getElementById('helpToggle');
         toggle.textContent = isVisible ? 'Help & Documentation' : 'Hide Documentation';
-    }
-    
-    toggleView() {
-        const dmElements = document.querySelectorAll('.dm-only');
-        const toggleBtn = document.getElementById('viewToggleBtn');
-        const isCurrentlyDmView = toggleBtn.textContent === 'DM View';
-        
-        dmElements.forEach(element => {
-            // If currently in DM View and button says "DM View", hide DM elements (switch to Player View)
-            // If currently in Player View and button says "Player View", show DM elements (switch to DM View)
-            element.style.display = isCurrentlyDmView ? 'none' : '';
-        });
-        
-        toggleBtn.textContent = isCurrentlyDmView ? 'Player View' : 'DM View';
-        
-        this.showNotification(
-            isCurrentlyDmView ? 'Switched to Player View - DM tools hidden' : 'Switched to DM View - All tools visible',
-            'info'
-        );
     }
     
     showNotification(message, type = 'info') {

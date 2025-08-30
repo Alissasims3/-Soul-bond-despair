@@ -147,24 +147,6 @@ body {
     box-shadow: var(--shadow-light);
 }
 
-/* View Toggle Styles */
-.view-toggle {
-    background: var(--egregor-primary) !important;
-    color: var(--bg-primary) !important;
-    border-color: var(--egregor-secondary) !important;
-    font-weight: bold;
-}
-
-.view-toggle:hover {
-    background: var(--egregor-secondary) !important;
-}
-
-/* DM-Only Elements */
-.dm-only {
-    /* Initially hidden in Player View */
-    /* Will be controlled by JavaScript */
-}
-
 /* Main Grid Layout */
 .main-grid {
     display: grid;
