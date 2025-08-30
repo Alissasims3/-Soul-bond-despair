@@ -163,8 +163,16 @@
                         <div class="temp-box" data-index="1"></div>
                         <div class="temp-box" data-index="2"></div>
                     </div>
-                    <p class="temp-warning">When all 3 boxes are filled, they convert to 1 permanent Despair</p>
-                    <button id="clearTempBtn" class="clear-btn">Clear Temporary</button>
+                    <p class="temp-warning">When temp reaches 3, immediately converts to +1 permanent Despair</p>
+                    
+                    <!-- New Control Buttons -->
+                    <div class="temp-controls">
+                        <button id="gainTempBtn" class="temp-btn gain-btn">+1 Temp</button>
+                        <button id="gainTempMultiBtn" class="temp-btn gain-multi-btn">+N Temp</button>
+                        <button id="psychicStainBtn" class="temp-btn psychic-btn">Psychic Stain</button>
+                        <button id="clearTempBtn" class="temp-btn clear-btn">Clear Temp</button>
+                        <button id="decreaseTempBtn" class="temp-btn decrease-btn" title="DM only">-1 Temp</button>
+                    </div>
                 </section>
 
                 <!-- Corruption & Madness -->
