@@ -897,6 +897,412 @@ body {
     cursor: help;
 }
 
+/* Enhanced Deity-Specific Mutation System Styles */
+.deity-mutations-container {
+    margin-bottom: 20px;
+}
+
+.deity-mutation-section {
+    margin-bottom: 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.deity-mutation-section[data-deity="xevir"] {
+    border-color: #8B0000;
+}
+
+.deity-mutation-section[data-deity="ikris"] {
+    border-color: #FF4500;
+}
+
+.deity-mutation-section[data-deity="naivara"] {
+    border-color: #708090;
+}
+
+.deity-mutation-section[data-deity="hive"] {
+    border-color: #4B0082;
+}
+
+.deity-mutation-section[data-deity="choir"] {
+    border-color: #800080;
+}
+
+.deity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deity-header:hover {
+    background: var(--bg-tertiary);
+}
+
+.deity-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.mutation-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.deity-header.expanded .expand-icon {
+    transform: rotate(180deg);
+}
+
+.deity-content {
+    padding: 20px;
+    background: var(--bg-primary);
+}
+
+.deity-description {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.mutation-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.tier {
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 1px solid currentColor;
+}
+
+/* Tier-specific colors */
+.minor-whispers, .solar-whispers, .mist-whispers, .spore-whispers, .vision-whispers {
+    background: rgba(255, 215, 0, 0.1);
+    color: #FFD700;
+}
+
+.twisted-gifts, .burning-gifts, .veil-gifts, .collective-gifts, .revelation-gifts {
+    background: rgba(255, 165, 0, 0.1);
+    color: #FFA500;
+}
+
+.soul-scars, .plasma-scars, .memory-scars, .assimilation-scars, .madness-scars {
+    background: rgba(220, 38, 38, 0.1);
+    color: #DC2626;
+}
+
+.consuming-forms, .solar-avatar, .lunar-avatar, .collective-avatar, .cosmic-avatar {
+    background: rgba(139, 0, 139, 0.1);
+    color: #8B008B;
+}
+
+.roll-mutation-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--button-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.roll-mutation-btn:hover {
+    background: var(--button-hover);
+    border-color: var(--border-hover);
+}
+
+/* Deity-specific button colors */
+.deity-mutation-section[data-deity="xevir"] .roll-mutation-btn:hover {
+    border-color: #8B0000;
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.3);
+}
+
+.deity-mutation-section[data-deity="ikris"] .roll-mutation-btn:hover {
+    border-color: #FF4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+}
+
+.deity-mutation-section[data-deity="naivara"] .roll-mutation-btn:hover {
+    border-color: #708090;
+    box-shadow: 0 0 10px rgba(112, 128, 144, 0.3);
+}
+
+.deity-mutation-section[data-deity="hive"] .roll-mutation-btn:hover {
+    border-color: #4B0082;
+    box-shadow: 0 0 10px rgba(75, 0, 130, 0.3);
+}
+
+.deity-mutation-section[data-deity="choir"] .roll-mutation-btn:hover {
+    border-color: #800080;
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.3);
+}
+
+.deity-mutations-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    background: var(--bg-tertiary);
+}
+
+.mutation-entry {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    border-left: 4px solid var(--border-color);
+}
+
+.mutation-entry.minor {
+    border-left-color: #FFD700;
+}
+
+.mutation-entry.moderate {
+    border-left-color: #FFA500;
+}
+
+.mutation-entry.major {
+    border-left-color: #DC2626;
+}
+
+.mutation-entry.consuming, .mutation-entry.avatar {
+    border-left-color: #8B008B;
+}
+
+.mutation-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.mutation-effect {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Vision Pool System */
+.vision-pool-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(128, 0, 128, 0.1);
+    border-radius: 8px;
+    border: 1px solid #800080;
+}
+
+.vision-tokens {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.token-counter {
+    background: var(--bg-secondary);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #800080;
+    min-width: 30px;
+    text-align: center;
+}
+
+.add-token-btn, .remove-token-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #800080;
+    background: var(--bg-secondary);
+    color: #800080;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.add-token-btn:hover, .remove-token-btn:hover {
+    background: #800080;
+    color: white;
+}
+
+.vision-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.vision-btn {
+    padding: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid #800080;
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.vision-btn:hover {
+    background: rgba(128, 0, 128, 0.2);
+    border-color: #A020F0;
+}
+
+.vision-history {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #800080;
+    border-radius: 4px;
+    padding: 10px;
+    background: var(--bg-tertiary);
+}
+
+.vision-entry {
+    margin-bottom: 10px;
+    padding: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    border-left: 3px solid #800080;
+}
+
+.vision-title {
+    font-weight: bold;
+    color: #A020F0;
+    margin-bottom: 3px;
+}
+
+.vision-effect {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Mutation Interactions */
+.mutation-interactions {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid #FFD700;
+    border-radius: 8px;
+}
+
+.interactions-list {
+    display: grid;
+    gap: 10px;
+}
+
+.interaction-entry {
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    border-left: 4px solid var(--border-color);
+}
+
+.interaction-entry.conflict {
+    border-left-color: #DC2626;
+}
+
+.interaction-entry.synergy {
+    border-left-color: #10B981;
+}
+
+.interaction-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.interaction-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Purification Section */
+.purification-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10B981;
+    border-radius: 8px;
+}
+
+.purification-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid #10B981;
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.purification-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #059669;
+}
+
+.purification-options {
+    margin-top: 15px;
+}
+
+.ritual-option {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    border-left: 4px solid #10B981;
+}
+
+.ritual-option h4 {
+    margin: 0 0 5px 0;
+    color: #10B981;
+}
+
+.requirements {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.deity-cleansing {
+    display: grid;
+    gap: 10px;
+}
+
+.cleansing-option {
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    border-left: 4px solid var(--border-color);
+}
+
+/* Legacy mutations table updates */
+.legacy-mutations {
+    margin-top: 30px;
+}
+
+.legacy-mutations h3 {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {

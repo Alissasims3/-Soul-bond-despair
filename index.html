@@ -219,27 +219,167 @@
                 </div>
             </section>
 
-            <!-- Divine Marks/Mutations Log -->
-            <section class="tracker-section mutations-section">
-                <h2>Divine Marks & Mutations Log</h2>
-                <div class="mutations-container">
-                    <table class="mutations-table" id="mutationsTable">
-                        <thead>
-                            <tr>
-                                <th>Level</th>
-                                <th>Source</th>
-                                <th>Effect</th>
-                                <th>Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="mutationsBody">
-                            <!-- Mutations will be populated here -->
-                        </tbody>
-                    </table>
-                    <button id="addMutationBtn" class="add-btn">Add Manual Entry</button>
-                </div>
-            </section>
+                <!-- Enhanced Divine Marks/Mutations System -->
+                <section class="tracker-section mutations-section">
+                    <h2>Divine Marks & Mutations System</h2>
+                    
+                    <!-- Deity-Specific Mutation Sections -->
+                    <div class="deity-mutations-container">
+                        <div class="deity-mutation-section" data-deity="xevir">
+                            <div class="deity-header" onclick="toggleDeitySection('xevir')">
+                                <h3>🩸 Xevir's Corruption</h3>
+                                <div class="mutation-count">0 mutations</div>
+                                <div class="expand-icon">▼</div>
+                            </div>
+                            <div class="deity-content" id="xevir-content" style="display: none;">
+                                <div class="deity-description">The Crimson Yearning - Longing & Identity Loss</div>
+                                <div class="mutation-tiers">
+                                    <div class="tier minor-whispers">Minor Whispers (01-30)</div>
+                                    <div class="tier twisted-gifts">Twisted Gifts (31-60)</div>
+                                    <div class="tier soul-scars">Soul Scars (61-85)</div>
+                                    <div class="tier consuming-forms">Consuming Forms (86-100)</div>
+                                </div>
+                                <button class="roll-mutation-btn" data-deity="xevir">Roll d100 Mutation</button>
+                                <div class="deity-mutations-list" id="xevir-mutations"></div>
+                            </div>
+                        </div>
+
+                        <div class="deity-mutation-section" data-deity="ikris">
+                            <div class="deity-header" onclick="toggleDeitySection('ikris')">
+                                <h3>🔥 Ikris's Wrath</h3>
+                                <div class="mutation-count">0 mutations</div>
+                                <div class="expand-icon">▼</div>
+                            </div>
+                            <div class="deity-content" id="ikris-content" style="display: none;">
+                                <div class="deity-description">The Burning Judge - Vengeance & Burning Justice</div>
+                                <div class="mutation-tiers">
+                                    <div class="tier solar-whispers">Solar Whispers (01-30)</div>
+                                    <div class="tier burning-gifts">Burning Gifts (31-60)</div>
+                                    <div class="tier plasma-scars">Plasma Scars (61-85)</div>
+                                    <div class="tier solar-avatar">Solar Avatar (86-100)</div>
+                                </div>
+                                <button class="roll-mutation-btn" data-deity="ikris">Roll d100 Mutation</button>
+                                <div class="deity-mutations-list" id="ikris-mutations"></div>
+                            </div>
+                        </div>
+
+                        <div class="deity-mutation-section" data-deity="naivara">
+                            <div class="deity-header" onclick="toggleDeitySection('naivara')">
+                                <h3>🌫️ Naivara's Veil</h3>
+                                <div class="mutation-count">0 mutations</div>
+                                <div class="expand-icon">▼</div>
+                            </div>
+                            <div class="deity-content" id="naivara-content" style="display: none;">
+                                <div class="deity-description">The Mist Walker - Memory & Forgotten Truths</div>
+                                <div class="mutation-tiers">
+                                    <div class="tier mist-whispers">Mist Whispers (01-30)</div>
+                                    <div class="tier veil-gifts">Veil Gifts (31-60)</div>
+                                    <div class="tier memory-scars">Memory Scars (61-85)</div>
+                                    <div class="tier lunar-avatar">Lunar Avatar (86-100)</div>
+                                </div>
+                                <button class="roll-mutation-btn" data-deity="naivara">Roll d100 Mutation</button>
+                                <div class="deity-mutations-list" id="naivara-mutations"></div>
+                            </div>
+                        </div>
+
+                        <div class="deity-mutation-section" data-deity="hive">
+                            <div class="deity-header" onclick="toggleDeitySection('hive')">
+                                <h3>👑 Hive Father's Unity</h3>
+                                <div class="mutation-count">0 mutations</div>
+                                <div class="expand-icon">▼</div>
+                            </div>
+                            <div class="deity-content" id="hive-content" style="display: none;">
+                                <div class="deity-description">The Collective Crown - Unity & Assimilation</div>
+                                <div class="mutation-tiers">
+                                    <div class="tier spore-whispers">Spore Whispers (01-30)</div>
+                                    <div class="tier collective-gifts">Collective Gifts (31-60)</div>
+                                    <div class="tier assimilation-scars">Assimilation Scars (61-85)</div>
+                                    <div class="tier collective-avatar">Collective Avatar (86-100)</div>
+                                </div>
+                                <button class="roll-mutation-btn" data-deity="hive">Roll d100 Mutation</button>
+                                <div class="deity-mutations-list" id="hive-mutations"></div>
+                            </div>
+                        </div>
+
+                        <div class="deity-mutation-section" data-deity="choir">
+                            <div class="deity-header" onclick="toggleDeitySection('choir')">
+                                <h3>🧠 Crawling Choir's Whispers</h3>
+                                <div class="mutation-count">0 mutations</div>
+                                <div class="expand-icon">▼</div>
+                            </div>
+                            <div class="deity-content" id="choir-content" style="display: none;">
+                                <div class="deity-description">The Many-Voiced Truth - Madness & Psychic Horror</div>
+                                <div class="mutation-tiers">
+                                    <div class="tier vision-whispers">Vision Whispers (01-30)</div>
+                                    <div class="tier revelation-gifts">Revelation Gifts (31-60)</div>
+                                    <div class="tier madness-scars">Madness Scars (61-85)</div>
+                                    <div class="tier cosmic-avatar">Cosmic Avatar (86-100)</div>
+                                </div>
+                                <button class="roll-mutation-btn" data-deity="choir">Roll d100 Mutation</button>
+                                <div class="deity-mutations-list" id="choir-mutations"></div>
+                                
+                                <!-- Vision Pool System -->
+                                <div class="vision-pool-section">
+                                    <h4>🌀 Vision Pool System</h4>
+                                    <div class="vision-tokens">
+                                        <span>Vision Tokens: </span>
+                                        <div class="token-counter" id="visionTokens">0</div>
+                                        <button class="add-token-btn" onclick="addVisionToken()">+</button>
+                                        <button class="remove-token-btn" onclick="removeVisionToken()">-</button>
+                                    </div>
+                                    <div class="vision-categories">
+                                        <button class="vision-btn" data-category="cosmicTruths">Cosmic Truths</button>
+                                        <button class="vision-btn" data-category="forbiddenKnowledge">Forbidden Knowledge</button>
+                                        <button class="vision-btn" data-category="personalRevelations">Personal Revelations</button>
+                                        <button class="vision-btn" data-category="temporalEchoes">Temporal Echoes</button>
+                                        <button class="vision-btn" data-category="madnessVisions">Madness Visions</button>
+                                    </div>
+                                    <div class="vision-history" id="visionHistory"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mutation Interactions Display -->
+                    <div class="mutation-interactions" id="mutationInteractions" style="display: none;">
+                        <h3>⚔️ Divine Conflicts & Synergies</h3>
+                        <div class="interactions-list" id="interactionsList"></div>
+                    </div>
+
+                    <!-- Purification Options -->
+                    <div class="purification-section">
+                        <h3>✨ Purification & Redemption</h3>
+                        <button class="purification-btn" onclick="showPurificationOptions()">View Cleansing Options</button>
+                        <div class="purification-options" id="purificationOptions" style="display: none;">
+                            <div class="ritual-option">
+                                <h4>🌙 Blue Moon Ritual</h4>
+                                <p>Universal cleansing during the blue moon. Removes 1d4+1 mutation levels.</p>
+                                <div class="requirements">Requires: Blue moon, sacred water, 3 willing participants, genuine repentance</div>
+                            </div>
+                            <div class="deity-cleansing" id="deityCleansingOptions"></div>
+                        </div>
+                    </div>
+
+                    <!-- Legacy Mutations Table -->
+                    <div class="legacy-mutations">
+                        <h3>📜 All Mutations Log</h3>
+                        <table class="mutations-table" id="mutationsTable">
+                            <thead>
+                                <tr>
+                                    <th>Severity</th>
+                                    <th>Source</th>
+                                    <th>Effect</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mutationsBody">
+                                <!-- Mutations will be populated here -->
+                            </tbody>
+                        </table>
+                        <button id="addMutationBtn" class="add-btn">Add Manual Entry</button>
+                    </div>
+                </section>
         </div>
 
         <!-- Help Documentation -->

@@ -14,7 +14,20 @@ class SoulsHarmonyTracker {
             divineInfluence: null,
             memoryFragments: 0,
             mutations: [],
-            rollHistory: []
+            rollHistory: [],
+            // Enhanced mutation tracking
+            deityMutations: {
+                xevir: [],
+                ikris: [],
+                naivara: [],
+                hive: [],
+                choir: []
+            },
+            visionTokens: 0,
+            visionHistory: [],
+            activeInfluences: [], // Track multiple divine influences
+            mutationInteractions: [],
+            lastDespairThreshold: 0 // Track for auto-rolling
         };
         
         this.initialize();
@@ -129,8 +142,25 @@ class SoulsHarmonyTracker {
             this.toggleHelp();
         });
         
+        // Enhanced mutation system event listeners
+        document.querySelectorAll('.roll-mutation-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const deity = e.target.dataset.deity;
+                this.rollDeityMutation(deity);
+            });
+        });
+        
+        // Vision system buttons
+        document.querySelectorAll('.vision-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const category = e.target.dataset.category;
+                this.rollVision(category);
+            });
+        });
+        
         // Modal handling
         this.setupModalHandlers();
+        this.setupEnhancedMutationSystem();
     }
     
     generateProgressBars() {
@@ -631,12 +661,17 @@ class SoulsHarmonyTracker {
     updateMutationsTable() {
         const tbody = document.getElementById('mutationsBody');
         tbody.innerHTML = this.state.mutations.map(mutation => {
-            const entity = GAME_DATA.DIVINE_ENTITIES[mutation.source];
+            // Handle both old and new mutation formats
+            const severity = mutation.severity || mutation.level || 'Unknown';
+            const source = mutation.deity || mutation.source;
+            const entity = source ? GAME_DATA.DIVINE_ENTITIES[source] : null;
+            const sourceDisplay = entity ? entity.sigil + ' ' + entity.name : (source || 'Unknown');
+            
             return `
                 <tr>
-                    <td>${mutation.level}</td>
-                    <td>${entity ? entity.sigil + ' ' + entity.name : mutation.source}</td>
-                    <td>${mutation.effect}</td>
+                    <td>${severity}</td>
+                    <td>${sourceDisplay}</td>
+                    <td>${mutation.effect || mutation.name || 'No description'}</td>
                     <td>${mutation.date}</td>
                     <td><button onclick="tracker.removeMutation(${mutation.id})" class="clear-btn">Remove</button></td>
                 </tr>
@@ -773,11 +808,32 @@ class SoulsHarmonyTracker {
         try {
             const saved = localStorage.getItem(GAME_DATA.AUTO_SAVE_CONFIG.storageKey);
             if (saved) {
-                this.state = { ...this.state, ...JSON.parse(saved) };
+                const savedState = JSON.parse(saved);
+                
+                // Merge with default state structure to handle new properties
+                this.state = {
+                    ...this.state,
+                    ...savedState,
+                    // Ensure new properties exist with defaults
+                    deityMutations: savedState.deityMutations || {
+                        xevir: [],
+                        ikris: [],
+                        naivara: [],
+                        hive: [],
+                        choir: []
+                    },
+                    visionTokens: savedState.visionTokens || 0,
+                    visionHistory: savedState.visionHistory || [],
+                    activeInfluences: savedState.activeInfluences || [],
+                    mutationInteractions: savedState.mutationInteractions || [],
+                    lastDespairThreshold: savedState.lastDespairThreshold || 0
+                };
+                
                 document.getElementById('characterName').value = this.state.characterName;
                 this.updateDisplay();
                 this.updateMutationsTable();
                 this.updateRollHistory();
+                this.setupEnhancedMutationSystem();
                 
                 // Restore divine influence
                 if (this.state.divineInfluence) {
@@ -841,6 +897,374 @@ class SoulsHarmonyTracker {
             }
         };
         reader.readAsText(file);
+    }
+    
+    // Enhanced Mutation System Methods
+    setupEnhancedMutationSystem() {
+        this.updateDeityMutationCounts();
+        this.updateVisionTokenDisplay();
+        this.checkMutationInteractions();
+        this.updatePurificationOptions();
+    }
+    
+    rollDeityMutation(deity) {
+        const roll = Math.floor(Math.random() * 100) + 1;
+        const mutationTable = GAME_DATA.DIVINE_ENTITIES[deity].mutationTable;
+        
+        // Determine which tier based on roll
+        let selectedTier = null;
+        let mutation = null;
+        
+        for (const [tierKey, tierData] of Object.entries(mutationTable)) {
+            if (roll >= tierData.range[0] && roll <= tierData.range[1]) {
+                selectedTier = tierData;
+                // Find specific mutation within tier
+                for (const mut of tierData.mutations) {
+                    if (roll >= mut.roll[0] && roll <= mut.roll[1]) {
+                        mutation = mut;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        
+        if (mutation) {
+            const mutationEntry = {
+                id: Date.now(),
+                deity: deity,
+                roll: roll,
+                tier: selectedTier.tier,
+                name: mutation.name,
+                effect: mutation.effect,
+                severity: mutation.severity,
+                date: new Date().toLocaleDateString()
+            };
+            
+            this.state.deityMutations[deity].push(mutationEntry);
+            this.state.mutations.push(mutationEntry); // Keep for legacy table
+            
+            // Add to active influences if not already present
+            if (!this.state.activeInfluences.includes(deity)) {
+                this.state.activeInfluences.push(deity);
+            }
+            
+            // Handle special cases
+            if (deity === 'choir') {
+                this.addVisionToken();
+            }
+            
+            this.updateDeityMutationDisplay(deity);
+            this.updateDeityMutationCounts();
+            this.checkMutationInteractions();
+            this.updateMutationsTable();
+            this.saveState();
+            
+            this.showNotification(
+                `${GAME_DATA.DIVINE_ENTITIES[deity].sigil} ${mutation.name}: ${mutation.effect}`,
+                deity
+            );
+            
+            this.addToHistory(`${deity.toUpperCase()} Mutation (${roll}): ${mutation.name}`);
+        }
+    }
+    
+    updateDeityMutationDisplay(deity) {
+        const mutationsList = document.getElementById(`${deity}-mutations`);
+        if (!mutationsList) return;
+        
+        mutationsList.innerHTML = this.state.deityMutations[deity]
+            .map(mut => `
+                <div class="mutation-entry ${mut.severity.toLowerCase()}">
+                    <div class="mutation-name">${mut.name} (${mut.tier})</div>
+                    <div class="mutation-effect">${mut.effect}</div>
+                    <div class="mutation-meta">Roll: ${mut.roll} | ${mut.date}</div>
+                </div>
+            `).join('');
+    }
+    
+    updateDeityMutationCounts() {
+        for (const deity of ['xevir', 'ikris', 'naivara', 'hive', 'choir']) {
+            const count = this.state.deityMutations[deity].length;
+            const countElement = document.querySelector(`[data-deity="${deity}"] .mutation-count`);
+            if (countElement) {
+                countElement.textContent = `${count} mutation${count !== 1 ? 's' : ''}`;
+            }
+            
+            // Update display for each deity
+            this.updateDeityMutationDisplay(deity);
+        }
+    }
+    
+    rollVision(category) {
+        if (this.state.visionTokens <= 0) {
+            this.showNotification('No vision tokens available!', 'error');
+            return;
+        }
+        
+        const visionData = GAME_DATA.VISION_POOL_SYSTEM.visionCategories[category];
+        const roll = Math.floor(Math.random() * 100) + 1;
+        
+        let selectedVision = null;
+        for (const vision of visionData.visions) {
+            if (roll >= vision.roll[0] && roll <= vision.roll[1]) {
+                selectedVision = vision;
+                break;
+            }
+        }
+        
+        if (selectedVision) {
+            const visionEntry = {
+                id: Date.now(),
+                category: category,
+                roll: roll,
+                vision: selectedVision.vision,
+                effect: selectedVision.effect,
+                date: new Date().toLocaleDateString()
+            };
+            
+            this.state.visionHistory.unshift(visionEntry);
+            this.removeVisionToken();
+            
+            this.updateVisionHistory();
+            this.saveState();
+            
+            this.showNotification(
+                `Vision: ${selectedVision.vision} - ${selectedVision.effect}`,
+                'choir'
+            );
+            
+            this.addToHistory(`VISION (${category}): ${selectedVision.vision}`);
+        }
+    }
+    
+    addVisionToken() {
+        this.state.visionTokens++;
+        this.updateVisionTokenDisplay();
+        this.saveState();
+    }
+    
+    removeVisionToken() {
+        if (this.state.visionTokens > 0) {
+            this.state.visionTokens--;
+            this.updateVisionTokenDisplay();
+            this.saveState();
+        }
+    }
+    
+    updateVisionTokenDisplay() {
+        const display = document.getElementById('visionTokens');
+        if (display) {
+            display.textContent = this.state.visionTokens;
+        }
+    }
+    
+    updateVisionHistory() {
+        const historyContainer = document.getElementById('visionHistory');
+        if (!historyContainer) return;
+        
+        historyContainer.innerHTML = this.state.visionHistory
+            .slice(0, 10) // Show last 10 visions
+            .map(vision => `
+                <div class="vision-entry">
+                    <div class="vision-title">${vision.vision} (${vision.category})</div>
+                    <div class="vision-effect">${vision.effect}</div>
+                    <div class="vision-meta">Roll: ${vision.roll} | ${vision.date}</div>
+                </div>
+            `).join('');
+    }
+    
+    checkMutationInteractions() {
+        const interactions = [];
+        const influences = this.state.activeInfluences;
+        
+        if (influences.length < 2) {
+            document.getElementById('mutationInteractions').style.display = 'none';
+            return;
+        }
+        
+        // Check for conflicts and synergies
+        for (let i = 0; i < influences.length; i++) {
+            for (let j = i + 1; j < influences.length; j++) {
+                const pair = `${influences[i]}-${influences[j]}`;
+                const reversePair = `${influences[j]}-${influences[i]}`;
+                
+                if (GAME_DATA.MUTATION_INTERACTIONS.conflictingPairs[pair]) {
+                    interactions.push({
+                        type: 'conflict',
+                        ...GAME_DATA.MUTATION_INTERACTIONS.conflictingPairs[pair]
+                    });
+                } else if (GAME_DATA.MUTATION_INTERACTIONS.conflictingPairs[reversePair]) {
+                    interactions.push({
+                        type: 'conflict',
+                        ...GAME_DATA.MUTATION_INTERACTIONS.conflictingPairs[reversePair]
+                    });
+                } else if (GAME_DATA.MUTATION_INTERACTIONS.compatiblePairs[pair]) {
+                    interactions.push({
+                        type: 'synergy',
+                        ...GAME_DATA.MUTATION_INTERACTIONS.compatiblePairs[pair]
+                    });
+                } else if (GAME_DATA.MUTATION_INTERACTIONS.compatiblePairs[reversePair]) {
+                    interactions.push({
+                        type: 'synergy',
+                        ...GAME_DATA.MUTATION_INTERACTIONS.compatiblePairs[reversePair]
+                    });
+                }
+            }
+        }
+        
+        // Check for multiple influences chaos
+        if (influences.length >= 3) {
+            interactions.push({
+                type: 'chaos',
+                ...GAME_DATA.MUTATION_INTERACTIONS.multipleInfluences.threeOrMore
+            });
+        }
+        
+        this.state.mutationInteractions = interactions;
+        this.updateMutationInteractionsDisplay();
+    }
+    
+    updateMutationInteractionsDisplay() {
+        const container = document.getElementById('mutationInteractions');
+        const list = document.getElementById('interactionsList');
+        
+        if (this.state.mutationInteractions.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+        
+        container.style.display = 'block';
+        list.innerHTML = this.state.mutationInteractions
+            .map(interaction => `
+                <div class="interaction-entry ${interaction.type}">
+                    <div class="interaction-title">${interaction.description}</div>
+                    <div class="interaction-description">${interaction.effect || interaction.synergy || interaction.bonus || ''}</div>
+                </div>
+            `).join('');
+    }
+    
+    updatePurificationOptions() {
+        const container = document.getElementById('deityCleansingOptions');
+        if (!container) return;
+        
+        const activeDeities = this.state.activeInfluences;
+        container.innerHTML = activeDeities.map(deity => {
+            const cleansing = GAME_DATA.PURIFICATION_SYSTEM.deitySpecificCleansing[deity];
+            return `
+                <div class="cleansing-option">
+                    <h5>${GAME_DATA.DIVINE_ENTITIES[deity].sigil} ${cleansing.name}</h5>
+                    <p>${cleansing.description}</p>
+                    <div class="requirements">Requirements: ${cleansing.requirements.join(', ')}</div>
+                    <div class="effect">Effect: ${cleansing.effect}</div>
+                </div>
+            `;
+        }).join('');
+    }
+    
+    // Enhanced threshold checking with auto-rolling
+    checkDespairThresholds() {
+        const thresholds = [5, 10, 15, 20];
+        const currentThreshold = thresholds.find(t => 
+            this.state.despairScore >= t && this.state.lastDespairThreshold < t
+        );
+        
+        if (currentThreshold) {
+            const threshold = GAME_DATA.DESPAIR_THRESHOLDS[currentThreshold];
+            this.showNotification(
+                `Despair Threshold Reached: ${threshold.name} - ${threshold.description}`,
+                'warning'
+            );
+            
+            // Auto-trigger mutation rolls based on threshold automation
+            const automation = GAME_DATA.THRESHOLD_AUTOMATION.despairMilestones[currentThreshold];
+            if (automation && automation.autoTriggers) {
+                this.handleThresholdAutomation(currentThreshold, automation);
+            }
+            
+            this.state.lastDespairThreshold = currentThreshold;
+            
+            if (currentThreshold === 20) {
+                this.showNotification(
+                    'COMPLETE CORRUPTION: Your character becomes an NPC under DM control!',
+                    'error'
+                );
+            }
+        }
+    }
+    
+    handleThresholdAutomation(threshold, automation) {
+        automation.autoTriggers.forEach(trigger => {
+            switch (trigger) {
+                case 'Roll on Minor Corruption table':
+                    this.rollDice('d10');
+                    break;
+                case 'Check for divine influence if none present':
+                    if (!this.state.divineInfluence) {
+                        this.rollDice('d100');
+                    }
+                    break;
+                case 'Roll for divine influence':
+                    this.rollDice('d100');
+                    break;
+                case 'Roll on deity-specific mutation table':
+                    if (this.state.divineInfluence) {
+                        this.rollDeityMutation(this.state.divineInfluence);
+                    }
+                    break;
+                case 'Major mutation roll':
+                    if (this.state.divineInfluence) {
+                        this.rollDeityMutation(this.state.divineInfluence);
+                    }
+                    break;
+                case 'Avatar transformation roll':
+                    if (this.state.divineInfluence) {
+                        this.rollDeityMutation(this.state.divineInfluence);
+                    }
+                    break;
+            }
+        });
+    }
+}
+
+// Global functions for HTML onclick handlers
+function toggleDeitySection(deity) {
+    const content = document.getElementById(`${deity}-content`);
+    const header = document.querySelector(`[data-deity="${deity}"] .deity-header`);
+    const icon = header.querySelector('.expand-icon');
+    
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        header.classList.add('expanded');
+        icon.textContent = '▲';
+    } else {
+        content.style.display = 'none';
+        header.classList.remove('expanded');
+        icon.textContent = '▼';
+    }
+}
+
+function addVisionToken() {
+    if (tracker) {
+        tracker.addVisionToken();
+    }
+}
+
+function removeVisionToken() {
+    if (tracker) {
+        tracker.removeVisionToken();
+    }
+}
+
+function showPurificationOptions() {
+    const options = document.getElementById('purificationOptions');
+    if (options.style.display === 'none') {
+        options.style.display = 'block';
+        if (tracker) {
+            tracker.updatePurificationOptions();
+        }
+    } else {
+        options.style.display = 'none';
     }
 }
 
