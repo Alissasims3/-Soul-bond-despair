@@ -102,6 +102,11 @@ He values order, memory, and meaning—but his methods are cold, cruel, and effi
 ## 📜 Background: *The Forgotten Sentinel*
 
 ### **Before the Fall**
-- Born Yentir, youngest of the three Aldershadow brothers.
-- Known as *The Iron-Willed Protector*.
-- Loved by the people and by
+- Loved by the people and by his brothers, especially Xevir, whom he always sought to protect.
+- Trusted advisor to Isolde, with whom he shared a deep, unspoken bond.
+- His beauty and kindness were legendary, but so was his stubborn sense of duty.
+
+### **The Betrayal & Death**
+- Ambushed and mutilated by those who envied his gifts.
+- Xevir, desperate and grieving, used forbidden magic to claim Yentir’s flesh for himself.
+- Yentir’s soul was cast into darkness, until Naivara offered him a new purpose as Anatar, the faceless sentinel.
