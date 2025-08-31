@@ -82,7 +82,7 @@ The Despair Score continues to have a major impact even in an immortal state.
 |:---:|:---:|
 | 5+ | Lose 1 egregor slot permanently. |
 | 10+ | Emotional Paradox DC increases by +2. |
-| 15+ | Begin generating a **Longing Zone** (radius 30–300 ft.), causing nearby creatures to gain Despair each hour. |
+| 15+ | Begin generating a **Longing Zone** (radius 30 ft. plus 30 ft. for each point of Despair above 15, up to a maximum of 300 ft.), causing nearby creatures to gain Despair each hour. |
 | 20 | Xevir claims the immortal, and they become a full NPC antagonist. |
 
 ---
