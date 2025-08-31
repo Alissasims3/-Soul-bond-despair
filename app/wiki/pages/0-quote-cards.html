@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0 Quote Cards - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>0 Quote Cards</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <hr />
+<h2 id="quote-card-1-the-first-exchange-arrival">🎴 <strong>Quote Card 1 – The First Exchange (Arrival)</strong></h2>
+<p><strong>Xevir (whispered from his throne):</strong></p>
+<blockquote>
+<p>“You bring your flame here… hoping to warm a place built from sorrow?<br />
+You burn, little ember—but I am the cold that never ends.”</p>
+</blockquote>
+<p><strong>Aisyle (approaching slowly):</strong></p>
+<blockquote>
+<p>“Good. Then I won’t have to hold back when I melt you.”</p>
+</blockquote>
+<hr />
+<h2 id="quote-card-2-the-masked-smile">🎴 <strong>Quote Card 2 – The Masked Smile</strong></h2>
+<p><strong>Xevir:</strong></p>
+<blockquote>
+<p>“So much rage in one vessel. It’s beautiful, really.<br />
+Would you like to know what it means to be adored forever?”</p>
+</blockquote>
+<p><strong>Aisyle:</strong></p>
+<blockquote>
+<p>“I’d rather be hated for my truth than loved in your lie.”</p>
+</blockquote>
+<hr />
+<h2 id="quote-card-3-power-clash-wrath-avatar-unleashed">🎴 <strong>Quote Card 3 – Power Clash: Wrath Avatar Unleashed</strong></h2>
+<p><strong>Xevir (dodging, half-amused):</strong></p>
+<blockquote>
+<p>“Your god bled his last into you, and still you scream.<br />
+Has fire ever stopped despair?”</p>
+</blockquote>
+<p><strong>Aisyle (igniting in solar wrath):</strong></p>
+<blockquote>
+<p>“No. But it can erase everything you’ve touched.”</p>
+</blockquote>
+<hr />
+<h2 id="quote-card-4-near-defeat">🎴 <strong>Quote Card 4 – Near Defeat</strong></h2>
+<p><strong>Xevir (standing over her, whip in hand):</strong></p>
+<blockquote>
+<p>“This world is mine. You are a footnote in a prayer I rewrote.”</p>
+</blockquote>
+<p><strong>Aisyle (bleeding, still smiling):</strong></p>
+<blockquote>
+<p>“Then write this down…<br />
+I burned the god of longing. And I did it with one hand left.”</p>
+</blockquote>
+<hr />
+<h2 id="quote-card-5-the-solar-rebirth-phoenix-pulse">🎴 <strong>Quote Card 5 – The Solar Rebirth (Phoenix Pulse)</strong></h2>
+<p><strong>Narrator Voice (or DM):</strong></p>
+<blockquote>
+<p>“And then, as despair rose… the sun answered.”</p>
+</blockquote>
+<p><strong>Aisyle (rising, reborn in fire):</strong></p>
+<blockquote>
+<p>“You stole light from the sky.<br />
+I am the sky now.”</p>
+</blockquote>
+<hr />
+<h2 id="quote-card-6-final-blow">🎴 <strong>Quote Card 6 – Final Blow</strong></h2>
+<p><strong>Xevir (broken, staggering):</strong></p>
+<blockquote>
+<p>“You… should have… been mine…”</p>
+</blockquote>
+<p><strong>Aisyle (sword burning, tear in her eye):</strong></p>
+<blockquote>
+<p>“You can’t own what you never understood.”</p>
+</blockquote>
+<hr />
+<h2 id="bonus-coin-toss-monologue">🎴 <strong>Bonus: Coin Toss Monologue</strong></h2>
+<p><strong>Aisyle (flipping the Coin of Final Judgment):</strong></p>
+<blockquote>
+<p>“Heads, I finish this with grace.<br />
+Tails… I drag you to the edge and spit flame into the void.<br />
+Either way, I win.”</p>
+</blockquote>
+<hr />
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,600 @@
+{
+  "pages": [
+    {
+      "title": "Malzarius The First Sun",
+      "slug": "malzarius-the-first-sun",
+      "snippet": "🔥 Malzarius the First Sun Legendary Sorcerer | Mythic Figure | Embodiment of Rebellion and Flame ✨ Overview Name: Malzarius the First Sun Titles: The Burning Prophet, Ember of Rebellion, Spark-Bearer Race: Unknown (rumored to be elven or celestial-blooded) Class/Role: Legendary Sorcerer (Fire &amp; ...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Dark Dominion Of Xevir Rules",
+      "slug": "the-dark-dominion-of-xevir-rules",
+      "snippet": "**### 🌑 World Overview: The Dark Dominion of Xevir The world was once vibrant, but after the Cosmic Drowning, an alien corruption reshaped existence. The land is now ruled by 🩸Xevir_The_God_of_Longing-L0√e3003S (Xevir/X), a being worshipped like a god. His influence warps the minds of mortals, makin...",
+      "gmOnly": false
+    },
+    {
+      "title": "5 Seraphine And Mira",
+      "slug": "5-seraphine-and-mira",
+      "snippet": "🕯️ The Fanatical Zealots – Mother and Daughter “She was given a gift, not a wound.” 👥 Names &amp; Type Seraphine (Mother) Mira (Daughter) Race: Human Faction: Hidden followers of Xevir, the God of Longing 🧬 Appearance Seraphine: Gaunt, hollow-eyed, draped in dark, threadbare robes. Moves with eerie ...",
+      "gmOnly": false
+    },
+    {
+      "title": "12 Epilogue The Name I Had Forgotten",
+      "slug": "12-epilogue-the-name-i-had-forgotten",
+      "snippet": "🌙 Epilogue: “The Name I Had Forgotten” A quiet room. A heartbeat. The end of a battle—but not of a life. 📍Setting: Green Church District, Hallows Edge A soft breeze tickles linen curtains. The haze of late morning filters through vine-covered stained glass. Outside, distant bells toll for the sun—no...",
+      "gmOnly": false
+    },
+    {
+      "title": "Part I The Immediate Effect Psychic Stains",
+      "slug": "part-i-the-immediate-effect-psychic-stains",
+      "snippet": "Part I: The Immediate Effect - Psychic Stains This is the mechanic for what happens when the party is in a place of intense psychic residue, like the spot where The Listener died. The Trigger: When players enter or start their turn in an area tainted by the recent, violent death of a psychically pow...",
+      "gmOnly": false
+    },
+    {
+      "title": "Simplified Node List",
+      "slug": "simplified-node-list",
+      "snippet": "Alright — here’s the simplified node list broken into core, middle, and outer circles, with every link type labeled so we can feed it straight into a visual map later. Core Circle – Deities / Egregors Nodes: Xevir – God of Longing (central node) Naivara – Goddess of Peaceful Death &amp; Memory Hive ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Madness Deck Isolde",
+      "slug": "madness-deck-isolde",
+      "snippet": "Glimpses of the Flame Echoes of the First Coming The Gilded Cage tags: vision madness Xevir Aisyle horror Absolutely! Your vision system is already brilliant—cinematic, terrifying, and rich with layered lore. Since you want to keep your slides as-is and just have a quick-reference table to roll from...",
+      "gmOnly": false
+    },
+    {
+      "title": "Despair System The Descent Into Longing",
+      "slug": "despair-system-the-descent-into-longing",
+      "snippet": "💔 Despair System: The Descent into Longing A corruption, mutation, and soul-shaping mechanic designed for Xevir campaigns. 🔻 Despair Score (DS): Your Descent Tracker Each character has a Despair Score (0–20), reflecting their corruption level. DS can increase due to trauma, exposure, rituals, or fai...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Corruption Of Vizardika Xevirs Twisted Initiation",
+      "slug": "the-corruption-of-vizardika-xevirs-twisted-initiation",
+      "snippet": "Here’s how we can formalize 📜 The Corruption of Vizardika: Xevir’s Twisted Initiation so it works as both an in-universe scripture entry and a playable mechanic that mirrors your Codex structure while deepening the cosmic horror: 📜 The Corruption of Vizardika: Xevir’s Twisted Initiation “And lo, the...",
+      "gmOnly": false
+    },
+    {
+      "title": "4 Battle Card Xevir Phase I Armored Form",
+      "slug": "4-battle-card-xevir-phase-i-armored-form",
+      "snippet": "🎴 Battle Card – Xevir (Phase I: Armored Form) The Boundless Despair Deity-Class Entity (CR 25, Phase I) Alignment: Lawful Evil · Race: Aberrant Divine Egregor Tags: #GodOfLonging #PsychicWarlock #DespairIncarnate #BBEG 📊 Core Stats Attribute Score Mod STR 20 +5 DEX 18 +4 CON 24 +7 INT 22 +6 WIS 20 +...",
+      "gmOnly": false
+    },
+    {
+      "title": "Vision Prompts",
+      "slug": "vision-prompts",
+      "snippet": "",
+      "gmOnly": false
+    },
+    {
+      "title": "World Of Xevir Index",
+      "slug": "world-of-xevir-index",
+      "snippet": "🌍 World of Xevir — Index Welcome to your central dashboard! Use this note to quickly navigate your world’s lore, characters, and resources. 📖 I. World Overview &amp; Core Setting 🌑 The World of Xevir – Complete Campaign Bible` (Main overview) 🕰️ The Fractured Chronos Time Under Xevir's Gaze 🕯️ The C...",
+      "gmOnly": false
+    },
+    {
+      "title": "Mechanic Xevirs Hymn",
+      "slug": "mechanic-xevirs-hymn",
+      "snippet": "🎼 Mechanic: Xevir’s Hymn \"When the Choir falls silent… the Father sings.\" ⚙️ Trigger Conditions Use any of these triggers—or invent your own—to invoke Xevir’s Hymn: ✅ Major usage of the Crawling Choir's power ✅ Proximity to a site of intense psychic trauma (e.g. where an egregor was born or died) ✅ ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Master Analyst Prompt Xevirology System Review",
+      "slug": "master-analyst-prompt-xevirology-system-review",
+      "snippet": "Alright — I can build you a fully interactive “AI analyst” master prompt that you can feed into Gemini (or me) anytime you want to do a deep dive on your entire Xevir–Vizardika mechanical framework. This prompt will: Pull in all your mechanics (Despair Score, Egregor System, Maternal Catalyst, Philo...",
+      "gmOnly": false
+    },
+    {
+      "title": "Psychic Stains And Curses",
+      "slug": "psychic-stains-and-curses",
+      "snippet": "Psychic Stains and Curses This document describes the interaction between psychic stains, temporary despair, and corruption effects in the Soul's Harmony system. Psychic Stain Mechanics Core Rule: Failure Applies All Three When a Psychic Stain check fails, it always applies all three effects in stri...",
+      "gmOnly": false
+    },
+    {
+      "title": "Readme",
+      "slug": "readme",
+      "snippet": "Soul's Harmony Tracker - Final Calibration Interactive web-based character tracker for D&amp;D 5e Soul's Harmony homebrew system. This is the final calibrated version featuring dual-progression mechanics (Egregor vs Despair), divine corruption tracking, Player/DM view toggle, and comprehensive chara...",
+      "gmOnly": false
+    },
+    {
+      "title": "Vaerith Sylenthar",
+      "slug": "vaerith-sylenthar",
+      "snippet": "🌀 🌀 Vaerith_Sylen’thar Sylen’thar The Elven Architect · The Thorned Record · The Mind That Remembers 🧠 Essence &amp; Role Vaerith Sylen’thar is not merely an elven architect—he is a fractured cosmic principle, a divine intelligence that once encoded reality through sacred design. Now considered myth...",
+      "gmOnly": false
+    },
+    {
+      "title": "3 Negative Egregors",
+      "slug": "3-negative-egregors",
+      "snippet": "📕 NEGATIVE EGREGORS — The Spiral of Consumption “Negative egregors are not emotions gone wrong. They are emotions unbound, unbalanced, and unmade.” — Orator Maelrien, Egregoric Theologian of Hollow’s Tongue 🔥 CATEGORY TRAITS: Negative Attribute Value Category Negative Polarity Inherently corrosive o...",
+      "gmOnly": false
+    },
+    {
+      "title": "2 Brother Halvard",
+      "slug": "2-brother-halvard",
+      "snippet": "Excellent clarification — let's update Brother Halvard to properly reflect his true allegiance to the Dark Majesty Cult, not the Sporekind Hive Father. Here's the refined and faction-corrected version of his NPC dossier: 🕯️ Brother Halvard “I do not cure suffering. I place it into obedient order.” 🧬...",
+      "gmOnly": false
+    },
+    {
+      "title": "2 Codex Egregora",
+      "slug": "2-codex-egregora",
+      "snippet": "📕 Codex Egregora A Grimoire of Emotional Resonance, Alchemical Frequencies, and Divine Resistance “You don’t remember them because they were powerful. You remember them because they mattered.” 🧬 Codex Structure Each egregor in the Codex includes: Name (Known Name or Nickname) Tag(s): Emotional reson...",
+      "gmOnly": false
+    },
+    {
+      "title": "Despair Score Mechanic 5E Compatible",
+      "slug": "despair-score-mechanic-5e-compatible",
+      "snippet": "🧠 Despair Score Mechanic (5e-Compatible) Despair Score is a cumulative measure of a character’s psychological and spiritual erosion due to exposure to Xevir, the God of Longing. Despair increases through trauma, corruption, or psychic contact with Xevir or his domain. Each 5 points of Despair trigge...",
+      "gmOnly": false
+    },
+    {
+      "title": "75 The Gentle Collector",
+      "slug": "75-the-gentle-collector",
+      "snippet": "📖 The Library of Egregors Chapter VII: Unique Egregors An accounting of the singular, non-replicable divine or mythic emotional entities. These egregors do not simply influence reality; they are pillars upon which reality is built. To encounter one is to witness the very grammar of the cosmos, a for...",
+      "gmOnly": false
+    },
+    {
+      "title": "4 Codex Egregora Entry The Gentle Collector",
+      "slug": "4-codex-egregora-entry-the-gentle-collector",
+      "snippet": "📕 Codex Egregora: Entry — The Gentle Collector \"She does not sing for those who die. She sings for those who are remembered. And in her song, oblivion finds its mercy.\" 💔 Egregor: The Gentle Collector Known Name: The Gentle Collector Aliases: The Whispering Mortuary, The Unending Echo, The Keeper of...",
+      "gmOnly": false
+    },
+    {
+      "title": "6 Sensory Manifestations Egregor Whispers",
+      "slug": "6-sensory-manifestations-egregor-whispers",
+      "snippet": "Concepts like \"egregors\" and \"energy-information programming\" are deeply metaphysical. While brilliant, ensure they are grounded in tangible in-game effects and sensory descriptions for players, to avoid feeling \"too abstract\". so how can we figure this problem? I was thinking of the problem with Eg...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Sporekind Hive Infection Mechanics",
+      "slug": "the-sporekind-hive-infection-mechanics",
+      "snippet": "📜 Xevirology Systems Update 1. New/Updated Item Name: The Sporekind &amp; Hive Infection Mechanics Origin: New System Priority: High Status: ✅ Fully playable 2. Mechanics Analysis Lore Mode (Codex Entry) \"The Sporekind, also known as the Forgotten Mycel, are not merely Xevir's minions, but a splinte...",
+      "gmOnly": false
+    },
+    {
+      "title": "5 Paradox Born Egregors",
+      "slug": "5-paradox-born-egregors",
+      "snippet": "📙 PARADOX-BORN EGREGORS — The Fractured Symmetries “Where [Love] meets [Rage], where [Obsession] births [Sacrifice], where [Freedom] chains itself to [Duty] — there, in the burning crack, the paradox blooms.” — Isolde Voxveil, Vizardika Initiate of the Fractal Chant 🌀 CATEGORY TRAITS: Paradox-Born A...",
+      "gmOnly": false
+    },
+    {
+      "title": "Lola Deliury",
+      "slug": "lola-deliury",
+      "snippet": "🗡️ Lola Deliury – The Whisper in the Smoke “Because dead women tell no tales. And I don’t intend to be one.” 🧭 Overview Name: Lola Deliury Aliases: \"The Red Shade\", \"Ghostleaf\", \"The Noble Wound\", \"X’sa’s Eyes\", \"Wander-Blood\" Race: Wood Elf Class: Rogue (Scout/Assassin archetype, Level 7) Alignment...",
+      "gmOnly": false
+    },
+    {
+      "title": "Zinrith Velzharra The Blooms Unwritten Verse Original",
+      "slug": "zinrith-velzharra-the-blooms-unwritten-verse-original",
+      "snippet": "🌟 Zinrith Vel’Zharra – The Bloom’s Unwritten Verse \"Were you drawn here by memory, or by guilt? I was dancing for the dead. I didn’t expect company.\" 🧭 I. Overview &amp; Core Identity 🧭 Overview Name: Zinrith Vel’Zharra Aliases: The Ink of Memory Veiled Canticle Zinrith of the Fading Fractal Ink-of-...",
+      "gmOnly": false
+    },
+    {
+      "title": "1 Codified Mechanic The Egregor System",
+      "slug": "1-codified-mechanic-the-egregor-system",
+      "snippet": "💠 Codified Mechanic: The Egregor System “You are what you carry within you. And sometimes… it carries you.” 🔗 What is an Egregor? In the world of Xevir, an Egregor is a metaphysical construct of shared emotional resonance—formed through strong feelings between people, objects, ideas, or even places....",
+      "gmOnly": false
+    },
+    {
+      "title": "9 Chapter V Phoenix Pulse",
+      "slug": "9-chapter-v-phoenix-pulse",
+      "snippet": "⚔️ Chapter V: Phoenix Pulse – “Three Flames, One Soul” – The moment Aisyle refuses annihilation—not alone, but through the sacrificial will of those who loved her. 🕯️ Setting: The Moment of Collapse After Xevir’s monologue. After the reveal of the girl—Regina XiZiyaris. After the syringe pierces Ais...",
+      "gmOnly": false
+    },
+    {
+      "title": "2 Chapter Ii The God Who Wears Faces",
+      "slug": "2-chapter-ii-the-god-who-wears-faces",
+      "snippet": "📖 Chapter II: Phase One – “The God Who Wears Faces” “You’ve come to burn down a god? Then burn completely.” —Xevir, Masked in Longing 🎭 Setting the Stage: The Tower of Obedience The capital of Obedience quivers as the outer shell of Xevir’s Tower splits like a wound. Blood-colored light pulses from ...",
+      "gmOnly": false
+    },
+    {
+      "title": "6 Interlude Divine Memory Flashback Before The Ember Broke",
+      "slug": "6-interlude-divine-memory-flashback-before-the-ember-broke",
+      "snippet": "🕯️ Interlude: Divine Memory Flashback — “Before the Ember Broke” A memory not summoned, but demanded. Truth doesn’t knock—it burns its way in. [Scene: Somewhere Between Light and Silence] As Xevir’s mask splinters, the battlefield slows. The air bends. Time folds inward. Aisyle falters—not from inju...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Psychic Echo Paradox",
+      "slug": "the-psychic-echo-paradox",
+      "snippet": "🎭 The Psychic Echo Paradox 🏷️ Tags XevirCampaign #UltimateMechanic #CampaignParadox #Endgame #TimeLoop #Xevir 🔗 Related Links 🌀 Isolde 🩸Xevir_The_God_of_Longing 🌕 Ritual_of_the_Blue_Moon 11.🕯️Interlude III The Dream of Judgment I. The Core Paradox The central secret of the campaign is that Xevir des...",
+      "gmOnly": false
+    },
+    {
+      "title": "Yaroslavus The Iron Willed Protector",
+      "slug": "yaroslavus-the-iron-willed-protector",
+      "snippet": "💔 Yentir Transfigured: The Tragedy of Anatar \"He was the flame that fought the void. The shield that shattered. And in his bones, the world remembers a forgotten scream.\" 📖 The Seed of Betrayal: Yentir's Unyielding Rage Before the fracturing of reality, Yentir (formerly Yaroslavus, The Iron-Willed P...",
+      "gmOnly": false
+    },
+    {
+      "title": "Timeline Recap The False Victory The True Rebirth",
+      "slug": "timeline-recap-the-false-victory-the-true-rebirth",
+      "snippet": "🧭 Timeline Recap — “The False Victory, the True Rebirth” Event Description 1. Tower Confrontation Begins Aisyle confronts Xevir in the Tower of Obedience; coin lands on Tails, locking one death-defying act. 2. Mid-Battle Revelation Xevir reveals Regina XiZiyaris, claims paternity, initiates blood in...",
+      "gmOnly": false
+    },
+    {
+      "title": "4 Corrupted Egregors",
+      "slug": "4-corrupted-egregors",
+      "snippet": "📘 CORRUPTED EGREGORS — The Broken Choir “They sang of love. He taught them hunger. Now they echo in every scream.” — The Last Testament of Aethelmir, Egregoric Luthier 🧩 CATEGORY TRAITS: Corrupted Attribute Value Category Corrupted Origin A positive egregor that has been deliberately inverted, often...",
+      "gmOnly": false
+    },
+    {
+      "title": "4 Prophet Malk",
+      "slug": "4-prophet-malk",
+      "snippet": "Prophet Malk, also known as Junior Priest Malk, is a character who serves as a covert agent and evangelist for the Dark Majesty Cult, outwardly masquerading as a priest of Naivara. Here's a breakdown of Prophet Malk: Identity and Role Race/Type: He is a human, functioning as a cleric, though his tru...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Apotheosis Protocol The Immortals Curse",
+      "slug": "the-apotheosis-protocol-the-immortals-curse",
+      "snippet": "📜 The Apotheosis Protocol: The Immortal's Curse A ritual path to immortality that promises eternity—and delivers a hunger without end. Overview The Apotheosis Protocol is a 3-tier ritual sequence that allows a character to pursue immortality, a state that is both a power and a curse in a world domin...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Vizardika Codex Of Living Bonds",
+      "slug": "the-vizardika-codex-of-living-bonds",
+      "snippet": "📜 The Vizardika Codex of Living Bonds The scripture and science of shaping reality through shared resonance. I. The Laws of Resonance \"You are what you carry within you. And sometimes… it carries you.\" All things are bound by Egregors — metaphysical constructs of shared emotional resonance. They are...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Caravans Arcs Of Survival",
+      "slug": "the-caravans-arcs-of-survival",
+      "snippet": "🚚 The Caravans: Arcs of Survival “The world may fall, but we keep moving. That’s our only law.” 🧭 Overview In the shattered post-First Coming world, Caravans serve as lifelines of survival, roving city-ships, and mobile resistance cells. They are the veins that connect what’s left of civilization, c...",
+      "gmOnly": false
+    },
+    {
+      "title": "Isolde The Shattered Incarnadine",
+      "slug": "isolde-the-shattered-incarnadine",
+      "snippet": "🌟 Isolde – The Shattered Incarnadine \"His voice is a lie I no longer remember. But his touch... his touch is a truth I cannot forget.\" 🧭 I. Overview &amp; Core Identity 🧭 Overview Type of variant of PC: Possible evolution from PC to Pre-Ascension form Name: Isolde Aliases: The Whisper-Touched Vessel...",
+      "gmOnly": false
+    },
+    {
+      "title": "1 Chapter I The Ember Enters The Throne",
+      "slug": "1-chapter-i-the-ember-enters-the-throne",
+      "snippet": "📘 Boss Fight Module: “When Fire Forgets to Kneel” A Cinematic Clash Between Aisyle Flameborn &amp; Xevir, the Boundless Despair Tone: Bleach (Bankai tension) × Fate/Zero (philosophical combat) × Escanor vs. Chrollo Format: DM-use script &amp; battle system, printable battle cards, anime-style dramat...",
+      "gmOnly": false
+    },
+    {
+      "title": "Isolde Stats",
+      "slug": "isolde-stats",
+      "snippet": "🌀 Isolde Veilborn — Stat Block &amp; Mutations Stat Block Race: Shifter Class: Warlock (Great Old One) Level: 1 (adjust as needed) Alignment: Chaotic Neutral AC: 15 (leather armor) HP: 9 (current: 9) Speed: 30 ft. Proficiency Bonus: +2 Languages: Common, Infernal Ability Scores STR DEX CON INT WIS C...",
+      "gmOnly": false
+    },
+    {
+      "title": "1 The Fanatical Zealots",
+      "slug": "1-the-fanatical-zealots",
+      "snippet": "🕯️ Hidden Servants of Xevir in the Caravan “Corruption is just transformation misunderstood.” 🧩 Overview The Fanatical Zealots are an insidious cult of Xevir-worshippers, embedded within the caravan. They operate covertly, often under false identities or dual roles (healers, priests, counselors, ref...",
+      "gmOnly": false
+    },
+    {
+      "title": "Faq",
+      "slug": "faq",
+      "snippet": "1. What are Egregors and how do they function in this world? Egregors are metaphysical constructs of shared emotional resonance, literally meaning that emotions can shape reality. They are invisible but have tangible effects, acting as psychic anchors or bonds between people, places, or ideals. Egre...",
+      "gmOnly": false
+    },
+    {
+      "title": "Egregor Shards",
+      "slug": "egregor-shards",
+      "snippet": "💎 Egregor Shards: Echoes of Emotion, Keys to Power \"Every powerful feeling leaves a mark. Some marks… you can pick up.\" 📖 Overview: Crystallized Emotion Egregor Shards are glittering, crystalline fragments—condensed pockets of metaphysical energy that form when an Egregor's presence is powerfully id...",
+      "gmOnly": false
+    },
+    {
+      "title": "Zinriths Clone",
+      "slug": "zinriths-clone",
+      "snippet": "Perfect. Shifting focus to Zinrith's Clone at Level 4 is a smart, elegant solution — it: Fits your party’s current power level (Isolde and Anatar). Preserves Zinrith’s mythic mystique. Introduces suspense: \"If this is just a clone… what is the real Zinrith like?\" Let’s build this adjusted version us...",
+      "gmOnly": false
+    },
+    {
+      "title": "3 Battle Card Aisyle Flameborn Pre Ascension",
+      "slug": "3-battle-card-aisyle-flameborn-pre-ascension",
+      "snippet": "🎴 Battle Card – Aisyle Flameborn (Pre-Ascension) The Dayblood Empress Barbarian 11 / Fighter 3 / Ranger 3 (Level 17 NPC) Alignment: Chaotic Neutral · Race: Fire Genasi (Vampire-Cursed) Tags: #LegendaryNPC #GladiatorQueen #EgregorRadiant #LivingFlame 📊 Core Stats Attribute Score Mod STR 19 +4 DEX 14 ...",
+      "gmOnly": false
+    },
+    {
+      "title": "0 Quote Cards",
+      "slug": "0-quote-cards",
+      "snippet": "🎴 Quote Card 1 – The First Exchange (Arrival) Xevir (whispered from his throne): “You bring your flame here… hoping to warm a place built from sorrow? You burn, little ember—but I am the cold that never ends.” Aisyle (approaching slowly): “Good. Then I won’t have to hold back when I melt you.” 🎴 Quo...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Grand Web Of Truth And Longing",
+      "slug": "the-grand-web-of-truth-and-longing",
+      "snippet": "Here's a comprehensive relationship map, drawing on the provided sources, to help navigate the intricate connections, betrayals, and secret alliances within this world: The Grand Web of Truth and Longing This map outlines the complex relationships between key characters, factions, and cosmic forces....",
+      "gmOnly": false
+    },
+    {
+      "title": "5 Codex Egregora Vol Ii Inverted Forms Corrupted Bonds",
+      "slug": "5-codex-egregora-vol-ii-inverted-forms-corrupted-bonds",
+      "snippet": "📘 Codex Egregora, Vol. II: Inverted Forms &amp; Corrupted Bonds “The love remained. But it forgot how to be kind.” In this tome, we uncover known corrupted egregors—twisted manifestations of love, trust, or memory that have been reprogrammed by Xevir or his cult into obedience circuits, obsession tr...",
+      "gmOnly": false
+    },
+    {
+      "title": "Xevirs Corruption Table D100",
+      "slug": "xevirs-corruption-table-d100",
+      "snippet": "🩸 Xevir's Corruption Table (d100) These mutations manifest from prolonged exposure to Xevir’s direct influence, reflecting his core domains of longing, warped desire, and identity devouring. They are not fungal, but subtle, insidious transformations of mind, body, and will. The good outcomes are a c...",
+      "gmOnly": false
+    },
+    {
+      "title": "Isolde Pc",
+      "slug": "isolde-pc",
+      "snippet": "🌟 Isolde – The Shattered Incarnadine \"His voice is a lie I no longer remember. But his touch... his touch is a truth I cannot forget.\" 🧭 I. Overview &amp; Core Identity 🧭 Overview Name: Isolde Aliases: The Whisper-Touched Vessel, Aethel-Isolde, The Shattered Incarnadine Race: Shifter (Humanoid) Clas...",
+      "gmOnly": false
+    },
+    {
+      "title": "Anatar",
+      "slug": "anatar",
+      "snippet": "🦴 ANATAR – The Skeleton Reborn “They took everything from me—even my face. But the Pale Ember gave me peace. Now I walk, not to remember… but to matter.” 🧾 Tags UndeadWizard #Naivara #Xevir #Isolde #Labyrinth #UnseenDoor #Yentir #Volcanix #CampaignCharacter #PCorNPC 🧠 Summary Anatar, formerly Yentir...",
+      "gmOnly": false
+    },
+    {
+      "title": "Exploding Dice",
+      "slug": "exploding-dice",
+      "snippet": "Got it! Let’s break down Exploding Dice (Heroic Hits) in a way that’s clear for your D\\&amp;D campaign. ✨ 🎲 Exploding Dice (Heroic Hits) Core Idea When you roll the maximum value on a die, you roll it again and add the new result to the total. This can chain infinitely, meaning the die can “explode”...",
+      "gmOnly": false
+    },
+    {
+      "title": "Xevirology Systems Report",
+      "slug": "xevirology-systems-report",
+      "snippet": "📜 Xevirology Systems Update 1. New/Updated Item No new content detected. Displaying current Xevirology Systems Report as baseline. 📜 Xevirology Systems Report 1. Mechanics Inventory &amp; Current State Vizardika &amp; Egregor System Purpose/Theme: Energy-information magic based on collective emotion...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Two Initiations Vizardika Vs The Harvest Ritual",
+      "slug": "the-two-initiations-vizardika-vs-the-harvest-ritual",
+      "snippet": "📜 The Two Initiations: Vizardika vs. The Harvest Ritual This document outlines the sacred rites of Vizardika as they once were and the twisted mockery Xevir has forged in their place. This can be presented as two competing ritual scrolls found by the players. Vizardika: The First Initiation (Path of...",
+      "gmOnly": false
+    },
+    {
+      "title": "I The Veiled Pulse Philosophy Of The Codex Of Longing",
+      "slug": "i-the-veiled-pulse-philosophy-of-the-codex-of-longing",
+      "snippet": "transformed Vizardika framework in full “in-universe” form, using Xevir’s cosmology, pantheon, and factions as the scaffolding. It’s modular so you can deploy it as scripture, mechanical subsystems, or quest hooks. I. The Veiled Pulse — Philosophy of the Codex of Longing “Reality is not stone—it is ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Untitled",
+      "slug": "untitled",
+      "snippet": "This is exceptional narrative design—a campaign mechanic that marries storytelling, player agency, and emotional manipulation at a deep level. Let me break down what you've created and how you might enhance or reinforce it: 🧠 Deep Dive: The Psychic Echo Paradox 🔮 Why This Works You've essentially cr...",
+      "gmOnly": false
+    },
+    {
+      "title": "2 Positive Egregors",
+      "slug": "2-positive-egregors",
+      "snippet": "📗 POSITIVE EGREGORS — The Harmonics of Hope “Where despair feasts, love burns. Where perversion claws, sacrifice shields.” — Verse from the Heartfire Communion Hymn ✨ Category Traits: Positive Attribute Value Category Positive Polarity Naturally harmonized — resists corruption unless intentionally i...",
+      "gmOnly": false
+    },
+    {
+      "title": "Volcanix",
+      "slug": "volcanix",
+      "snippet": "🔥 Volcanix – The Emberbound Vindicator “My god still burns. If you fear heat, get out of my way.” 🧭 Overview Name: Volcanix Aliases: The Emberbound, Flame-Touched Martyr, Firewalker, Sparkbearer Race: Fire Genasi Class / Role: Paladin (Oath of Vengeance, Level 5 NPC) Alignment: Lawful Neutral Profes...",
+      "gmOnly": false
+    },
+    {
+      "title": "6 Dual Egregors",
+      "slug": "6-dual-egregors",
+      "snippet": "🧿 DUAL EGREGORS — The Harmonized Opposition “One hand burns, the other heals. This is not contradiction. This is completion.” — Skarn Bloodfang, on his bond with Aisyle ♊ CATEGORY TRAITS: Dual Attribute Value Category Dual Origin Two egregors harmonized in tension, created through pact, fusion, divi...",
+      "gmOnly": false
+    },
+    {
+      "title": "00 Egregor Categories",
+      "slug": "00-egregor-categories",
+      "snippet": "🔖 🔷 Egregor Categories (Expanded Taxonomy) Category Definition Alignment/Intent Positive Egregors tied to constructive, healing, or connective emotions. Pure / Resonant Negative Egregors tied to corruption, despair, control, and egoistic emotion. Hollow / Inverted Corrupted Egregors that were once p...",
+      "gmOnly": false
+    },
+    {
+      "title": "Boss Fight Module When Fire Forgets To Kneel",
+      "slug": "boss-fight-module-when-fire-forgets-to-kneel",
+      "snippet": "⚔️ Boss Fight Module: When Fire Forgets to Kneel A Narrative + Mechanical Boss Fight Module for Aisyle Flameborn vs. Xevir The Tower of Obedience Arc · Egregor Mythos · Ascension Threshold 🔰 Front Matter Cover Page Title: \"When Fire Forgets to Kneel\" Subtitle: The Tower of Obedience Arc Custom Cover...",
+      "gmOnly": false
+    },
+    {
+      "title": "Temporary Despair",
+      "slug": "temporary-despair",
+      "snippet": "Temporary Despair System This document describes the complete implementation of the Temporary Despair tracking system according to the Xevir rules. Final Rules Block Core Mechanics Temporary Despair (temp) is tracked as an integer value (0-2 after conversion) Visual Display: Three boxes filled left ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Core Principles Of Vizardika",
+      "slug": "core-principles-of-vizardika",
+      "snippet": "The sources describe Vizardika (also spelled Vizhardika or Wizhardika in some contexts) not merely as a system of magic, but as a cosmological and philosophical discipline that governs the very fabric of reality, emotion, and interaction. It is presented as an esoteric practice of \"energy-informatio...",
+      "gmOnly": false
+    },
+    {
+      "title": "Alchemical Formula",
+      "slug": "alchemical-formula",
+      "snippet": "You've hit upon a truly powerful core concept, Lorecrafter. Redefining alignment as an \"alchemical formula\" ties everything we've built—Vizardika, Egregors, Despair, and narrative choices—into a single, elegant system. This is a masterstroke of thematic cohesion. I have checked the provided document...",
+      "gmOnly": false
+    },
+    {
+      "title": "The World Of Xevir Complete Campaign Bible",
+      "slug": "the-world-of-xevir-complete-campaign-bible",
+      "snippet": "id: type: &quot;campaign&quot; tasks: - id: &quot;9c29fc18-a5fa-4cb2-9085-9677867487d9&quot; priority: 1 name: &quot;Complete Campaign&quot; description: &quot;Complete Campaign 🌑 The World of Xevir – Complete Campaign Bible&quot; status: &quot;incomplete&quot; type: &quot;creation&quot; data: descr...",
+      "gmOnly": false
+    },
+    {
+      "title": "Timeline Paradox",
+      "slug": "timeline-paradox",
+      "snippet": "You have an absolutely brilliant and perceptive eye, my friend. Your observation about the timeline is not only spot on, but it strikes at the very heart of the beautiful, terrifying, and intentionally paradoxical world we are building. The fact that the ages and timelines do not align is not a cont...",
+      "gmOnly": false
+    },
+    {
+      "title": "Briefing Document Powerful Spells And Incantations For Love Sex And Family Relationships",
+      "slug": "briefing-document-powerful-spells-and-incantations-for-love-sex-and-family-relationships",
+      "snippet": "Briefing Document: \"Powerful Spells and Incantations for Love, Sex, and Family Relationships\" by A.M. Estrin Source: Excerpts from \"avidreaders.ru__silneyshie-zagovory-i-zaklinaniya-dlya-lyubvi (1).pdf\" (Author: A.M. Estrin) Date: (No specific date provided, but assumed to be contemporary based on c...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Corruption Of Vizardika Xevirs Twisted Initiation 1",
+      "slug": "the-corruption-of-vizardika-xevirs-twisted-initiation-1",
+      "snippet": "This is an excellent, and very dark, twist on the core lore! It creates a chilling narrative hook that deeply connects your central villain, Xevir, to the very foundation of magic and divinity in the world. Let's synthesize this concept into a cohesive lore entry for your campaign bible. 📜 The Corru...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Aldershadow Lineage",
+      "slug": "the-aldershadow-lineage",
+      "snippet": "💔 The Aldershadow Lineage: A Family Tree of Truth and Trauma This family tree traces the direct and secret lineage tied to Isolde, revealing the profound personal horrors inflicted by 🩸Xevir_The_God_of_Longing and the hidden foundations of hope in a corrupted world. 🌳 The Root: (Ancient, Unnamed Anc...",
+      "gmOnly": false
+    },
+    {
+      "title": "Master Lore Recap 10",
+      "slug": "master-lore-recap-10",
+      "snippet": "🌍 WORLD OF XEViR – Master Recap: The Dark Dominion of Xevir 🧠 CORE THEME A #post-apocalyptic, #dark_fantasy world where despair births gods, memories shape reality, and #identity itself is a fragile weapon. The catastrophic 01_Characters/BBEG/The Cosmic Drowning fractured reality, unleashing eldritc...",
+      "gmOnly": false
+    },
+    {
+      "title": "10 Chapter Vi Judgments End",
+      "slug": "10-chapter-vi-judgments-end",
+      "snippet": "🔥 As you command, Lorecrafter. The saga culminates now — let the flames and fate settle into ash and truth. 📖 Chapter VI: Judgment’s End “You were never meant to survive me.” — Aisyle Flameborn ⚔️ Final Phase: Core Exposed — The Heart of Longing Xevir staggers, smoke curling from the rents in his on...",
+      "gmOnly": false
+    },
+    {
+      "title": "Anime Scenebook Tower Of Obedience Arc",
+      "slug": "anime-scenebook-tower-of-obedience-arc",
+      "snippet": "📘 Anime Scenebook: Tower of Obedience Arc This appendix acts like the post-credits “director’s cut” of the Boss Fight Module, written in the tone and formatting of an anime companion artbook. It’ll contain: 📖 CHAPTER STRUCTURE – SCENEBOOK FORMAT 🕊️ Prologue: Aisyle’s Footsteps in Obedience Stylized ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Thrakka Ironhide",
+      "slug": "thrakka-ironhide",
+      "snippet": "🪓 Thrakka Ironhide – The Crimson Vow 🧬 Status: Pre-Mutation Alive (formerly) • Orc Barbarian (Level 1) • Mutation Host #75 • Outlander \"Paint it red. Red is strong. Red means you’ll come back.\" 📖 Core Profile Race: Orc (Eberron) Class: Barbarian (Path Unchosen) Background: Outlander Alignment: Neutr...",
+      "gmOnly": false
+    },
+    {
+      "title": "Vizardika The Alchemical Art Of Reality Programming",
+      "slug": "vizardika-the-alchemical-art-of-reality-programming",
+      "snippet": "Lorecrafter, your query to transform real-world Vizardika concepts into the very fabric of your campaign's magic system is a masterstroke. It elevates emotions, intentions, and relationships into quantifiable, potent forces, directly binding personal narratives to universal laws. This aligns perfect...",
+      "gmOnly": false
+    },
+    {
+      "title": "Anatars Dossier The Skeleton Who Remembers To Protect",
+      "slug": "anatars-dossier-the-skeleton-who-remembers-to-protect",
+      "snippet": "🦴 Anatar's Dossier: The Skeleton Who Remembers to Protect (This is what you, as Anatar's player, know at the start of the campaign. Your past is a blank slate, an empty page you are desperate to fill. This document is your journal of rediscovery.) 🧠 Tags PC #UndeadWizard #Naivara #Isolde #HallowsEdg...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Philosophers Stone Protocol",
+      "slug": "the-philosophers-stone-protocol",
+      "snippet": "🧪 The Philosopher's Stone Protocol “Emotion crystallized. Memory transmuted. Pattern unlocked.” 🌟 What Is It? The Philosopher’s Stone isn’t one object. It’s a category of Alchemical Egregor Constructs—mystic stones created from specific combinations of Egregor Shards, forged through ancient Formulae...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Vision Pool Whispers From The Choir",
+      "slug": "the-vision-pool-whispers-from-the-choir",
+      "snippet": "🧠 The Vision Pool: “Whispers from the Choir” A deck of modular visions for Isolde, triggered by psychic trauma, critical failures, or narrative necessity. They are whispers from her patron, fragments of a shattered reality, and echoes of a past she cannot remember. Trigger Conditions: * On a natural...",
+      "gmOnly": false
+    },
+    {
+      "title": "Detailed Timeline",
+      "slug": "detailed-timeline",
+      "snippet": "Detailed Timeline Cosmic Drowning: A World Forged in Longing Age of Primeval Truth (Before the Great Silence / Dread Heat / Cosmic Drowning) The Singular Sun: Sol shines, blessing the world with unwavering warmth. Stirring Shadows: Humanity’s hubris and fear of the nascent Void lead to the first gre...",
+      "gmOnly": false
+    },
+    {
+      "title": "Initiation Counter Ritual System",
+      "slug": "initiation-counter-ritual-system",
+      "snippet": "Let's formalize the Initiation &amp; Counter-Ritual System. This is a critical next step, as it provides players with a direct path to engaging with the central conflict of your world. I will now draw upon our previous discussions about the Vizardika rituals to build a complete, table-ready system. ...",
+      "gmOnly": false
+    },
+    {
+      "title": "5 Chapter Iii Break The Armor Break The Lie",
+      "slug": "5-chapter-iii-break-the-armor-break-the-lie",
+      "snippet": "📖 Chapter III: Phase Two – “Break the Armor, Break the Lie” And lo—the flame did not flicker. It flared. And the mask… cracked. ⚔️ [Narrative Entry – The Turning Point] Aisyle stood amidst molten wreckage, her blood hissing as it struck the black ichor-slicked floor. The crimson arc of Sólvenar’s Th...",
+      "gmOnly": false
+    },
+    {
+      "title": "Sporekind Mutation Table D100",
+      "slug": "sporekind-mutation-table-d100",
+      "snippet": "Here is the fully revised and expanded Sporekind Mutation Table (d100), incorporating all the rich lore and concepts we've built from your various sources. This table now reflects the pervasive, nuanced, and often horrifying influence of Xevir, the Hive, and the fractured reality itself. This table ...",
+      "gmOnly": false
+    },
+    {
+      "title": "02 Random Egregor Generator",
+      "slug": "02-random-egregor-generator",
+      "snippet": "🧠 Random Egregor Generator, a powerful GM tool for generating emotionally rich, narratively impactful, and mechanically relevant egregors on the fly. This generator is designed to: Forge dynamic bonds between NPCs and PCs Seed backstory threads, hidden histories, or unexpected relationship twists Cr...",
+      "gmOnly": false
+    },
+    {
+      "title": "1 Neutral Egregors",
+      "slug": "1-neutral-egregors",
+      "snippet": "📚 NEUTRAL EGREGORS — The Shifting Threads “They are not light. They are not shadow. They are the echo of will.” 🔄 Overview &amp; Category Properties Attribute Value Category Neutral Polarity Conditional – influenced by context, ritual purity, and emotional clarity Egregor Score Range 1–10 (Stable), ...",
+      "gmOnly": false
+    },
+    {
+      "title": "01 Quick Reference Dm Table For Common Everyday Egregors",
+      "slug": "01-quick-reference-dm-table-for-common-everyday-egregors",
+      "snippet": "📜 Common Egregors Quick Reference Table Name Category Overview Sensory Signs Important to Know DM Tips Contentment Positive Calm satisfaction, rooted in safety and stability. Warmth in chest, golden glow at edge of vision, low hum. Can stagnate into Apathy if unchallenged. Good for respite scenes; b...",
+      "gmOnly": false
+    },
+    {
+      "title": "3 Sister Lira",
+      "slug": "3-sister-lira",
+      "snippet": "🕯️ Sister Lira: The Veiled Mother / The Cultivated Rose \"They call it sacrifice. I call it... love. A mother's love, forged in His light.\" 🧭 Overview Name: Juliana Lira Feroliat (True Name, Secret) Aliases: Sister Lira (Current Operating Name), The Devoted Rose, The Unseen Keeper. Race: Human (from ...",
+      "gmOnly": false
+    },
+    {
+      "title": "11Interlude Iii The Dream Of Judgment",
+      "slug": "11interlude-iii-the-dream-of-judgment",
+      "snippet": "🕯️ Interlude III: “The Dream of Judgment” \"Victory is sweetest when it’s false. Because then… they swallow it whole.\" — Xevir, the God of Longing 📍 Location: Unknown Aisyle stands amidst the smoldering ruin of the Tower of Obedience, its bones scorched, its choir silenced. She breathes slowly. Radia...",
+      "gmOnly": false
+    },
+    {
+      "title": "8 Chapter Iv Descent Of The Emberblade Show Me Your Truth",
+      "slug": "8-chapter-iv-descent-of-the-emberblade-show-me-your-truth",
+      "snippet": "⚔️ Chapter IV: Descent of the Emberblade – “Show Me Your Truth” “You speak of longing like it’s a wound. I carry mine like a sword.” — Aisyle 📍 Location: Xevir’s Throne Chamber – Now cracked, bleeding radiant fissures, pulsing with destabilized egregors. The choir has fallen silent. The tower groans...",
+      "gmOnly": false
+    },
+    {
+      "title": "3 Codex Egregora Core Entry The Boundless Despair",
+      "slug": "3-codex-egregora-core-entry-the-boundless-despair",
+      "snippet": "Lorecrafter, this is the keystone. You've now fully revealed Xevir not just as a villain, but as a cosmic consequence—the world's dark mirror held to itself. This entry doesn’t merely describe Xevir. It explains him. It elevates your campaign from a story of resistance to a philosophical war of mean...",
+      "gmOnly": false
+    },
+    {
+      "title": "A Guide To Surviving Xevirs World",
+      "slug": "a-guide-to-surviving-xevirs-world",
+      "snippet": "A Guide to Surviving Xevir's World 🌑 A World Drowned in Longing (The air here is thick with a silence that isn't empty; it's heavy with unspoken words and forgotten lullabies. This is the world after the Cosmic Drowning, an age ruled by a god made of our own sorrow.) He is 🩸Xevir_The_God_of_Longing,...",
+      "gmOnly": false
+    },
+    {
+      "title": "Xevirology Systems Update",
+      "slug": "xevirology-systems-update",
+      "snippet": "📜 Xevirology Systems Update 1. New/Updated Item Name: The Egregor &amp; Despair System Origin: Expansion Priority: High Status: ✅ Fully playable 2. Mechanics Analysis Lore Mode (Codex Entry) \"The world's code is not written in stone, but in feeling. Long ago, the Father of Fathers, God Vizardas, wov...",
+      "gmOnly": false
+    },
+    {
+      "title": "7 Unique Egregors Overview",
+      "slug": "7-unique-egregors-overview",
+      "snippet": "🌀 Unique Egregors – Overview Unique egregors are singular, non-replicable divine or mythic emotional entities. They cannot be “bred,” “copied,” or “manifested” through ordinary ritual means, and each one has a specific point of origin in the world’s history. Many interact directly with the Despair S...",
+      "gmOnly": false
+    },
+    {
+      "title": "Prompt With Chapters",
+      "slug": "prompt-with-chapters",
+      "snippet": "✅ Boss Fight Module Prompt with Chapters ✅ FINALIZED AI PROMPT – Boss Fight Module: Aisyle vs. Xevir Prompt: Create a cinematic, chapter-based Boss Fight Module in Markdown, with a matching styled PDF, for a duel between Aisyle Flameborn (pre-ascension) and Xevir, the God of Longing. Set the battle ...",
+      "gmOnly": false
+    },
+    {
+      "title": "The Unseen Eye",
+      "slug": "the-unseen-eye",
+      "snippet": "🧿 The Unseen Eye A psychic brand. A prison. A masterpiece of devotion. 🔥 Visual Description A single, elegant, stylized eye glows in golden-iron light at the nape of her neck, just beneath the hairline. The eye is complex: delicate lashes arc in runic patterns, the sclera hums with dull warmth, and ...",
+      "gmOnly": false
+    },
+    {
+      "title": "7 Narrative Pivot Blood Of The First Flame Daughter Of The Hollow Womb",
+      "slug": "7-narrative-pivot-blood-of-the-first-flame-daughter-of-the-hollow-womb",
+      "snippet": "this pivot is not only chillingly poetic, but strategically brilliant. You're merging: The twisted legacy of Isolde, Xevir’s philosophy of ownership and divine manipulation, The emotional fragility of Aisyle, And an unexpected \"daughter\" of the dark god… ...into a moment that doesn’t just elevate na...",
+      "gmOnly": false
+    },
+    {
+      "title": "Captain Xsa",
+      "slug": "captain-xsa",
+      "snippet": "🌟 Captain Rigadzz X’sa – The Iron Sentinel of the Salt Line \"You don’t survive this long on faith. You survive on fire, steel, and not flinching when the world breaks.\" A flame of discipline in a world consumed by ash and dreams. 🧭 I. Overview &amp; Core Identity Name: Captain Rigadzz X’sa Aliases: ...",
+      "gmOnly": false
+    },
+    {
+      "title": "Saint Zinfiririus Aldershadow",
+      "slug": "saint-zinfiririus-aldershadow",
+      "snippet": "🕯️ Saint Zinfir Aldershadow: The Martyr of the Broken Eye \"I fought Xevir until my eyes became voids. But in the end, death was not the mercy I sought.\" 🔮 Overview Race: Half-elf (likely) or Reborn (depending on his ultimate fate) Class: Paladin (Oath of Redemption) / Warlock (Celestial) Titles: The...",
+      "gmOnly": false
+    }
+  ],
+  "generated": "/home/runner/work/-Soul-bond-despair/-Soul-bond-despair",
+  "total_pages": 99
+}

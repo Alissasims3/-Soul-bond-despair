@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploding Dice - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Exploding Dice</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <p>Got it! Let’s break down <strong>Exploding Dice (Heroic Hits)</strong> in a way that’s clear for your D&amp;D campaign. ✨</p>
+<hr />
+<h1 id="exploding-dice-heroic-hits">🎲 Exploding Dice (Heroic Hits)</h1>
+<h3 id="core-idea"><strong>Core Idea</strong></h3>
+<p>When you roll the <strong>maximum value</strong> on a die, you roll it again and <strong>add the new result</strong> to the total.</p>
+<ul>
+<li>This can chain infinitely, meaning the die can “explode” multiple times.</li>
+<li>The mechanic rewards critical effort and adds cinematic unpredictability to damage, checks, or special moments.</li>
+</ul>
+<hr />
+<h2 id="how-it-works-step-by-step"><strong>How It Works Step-by-Step</strong></h2>
+<ol>
+<li><strong>Roll a die</strong> (attack damage, skill check, saving throw, etc.).</li>
+<li>
+<p><strong>If you hit the maximum</strong> (e.g., an 8 on a d8, or a 20 on a d20):</p>
+</li>
+<li>
+<p>Roll that die again.</p>
+</li>
+<li>Add the new roll to the previous total.</li>
+<li>
+<p><strong>Repeat</strong> if the new roll is also maximum.</p>
+</li>
+<li>
+<p>Example: Roll a d8 for damage → get an <strong>8</strong> → roll again → get <strong>8</strong> → roll again → get <strong>5</strong>.
+     <strong>Total = 8 + 8 + 5 = 21.</strong></p>
+</li>
+</ol>
+<hr />
+<h2 id="when-to-use-heroic-hits"><strong>When to Use Heroic Hits</strong></h2>
+<p>You can choose where in your campaign this applies. Common options:</p>
+<ul>
+<li><strong>Damage Rolls Only</strong> (keeps combat exciting).</li>
+<li><strong>Skill Checks &amp; Saves</strong> (allows for dramatic “superhuman” successes).</li>
+<li><strong>Critical Hits Only</strong> (exploding dice trigger when a crit is scored).</li>
+</ul>
+<hr />
+<h2 id="why-add-this-mechanic"><strong>Why Add This Mechanic?</strong></h2>
+<p>✅ Adds <strong>unpredictability &amp; excitement</strong>
+✅ Creates <strong>legendary story moments</strong> (“my rogue shot an arrow for 60 damage in one shot!”)
+✅ Fits <strong>dark, high-stakes campaigns</strong> like Xevir (chaos &amp; destiny in dice)</p>
+<hr />
+<h2 id="optional-tweaks"><strong>Optional Tweaks</strong></h2>
+<ul>
+<li><strong>Cap explosions</strong> (e.g., max 2 extra rolls).</li>
+<li><strong>Heroic Threshold</strong> (explosions only happen when narratively dramatic, like saving an ally or facing a boss).</li>
+<li><strong>Player-Only Rule</strong> (lets heroes shine).</li>
+</ul>
+<hr />
+<p>⚔️ Example in Play:</p>
+<ul>
+<li>Thrakka swings his greataxe (1d12 damage).</li>
+<li>Rolls <strong>12</strong> → explodes!</li>
+<li>Rolls another <strong>12</strong> → explodes again!</li>
+<li>Rolls <strong>10</strong>.</li>
+<li><strong>Total Damage = 34</strong> (and the table goes wild).</li>
+</ul>
+<hr />
+<p>Do you want me to write this up as a <strong>one-page player handout</strong> (like a rule card) that you can drop into Owlbear or show your group?</p>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

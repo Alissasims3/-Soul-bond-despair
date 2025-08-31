@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despair Score Mechanic 5E Compatible - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Despair Score Mechanic 5E Compatible</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <hr />
+<h2 id="despair-score-mechanic-5e-compatible">🧠 <strong>Despair Score Mechanic (5e-Compatible)</strong></h2>
+<blockquote>
+<p><strong>Despair Score</strong> is a cumulative measure of a character’s psychological and spiritual erosion due to exposure to Xevir, the God of Longing.
+Despair increases through trauma, corruption, or psychic contact with Xevir or his domain.
+<strong>Each 5 points of Despair triggers a mutation.</strong></p>
+</blockquote>
+<h3 id="despair-score-table">📊 Despair Score Table</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Despair Score</strong></th>
+<th><strong>Stage</strong></th>
+<th><strong>Mutation Category</strong></th>
+<th><strong>Save DC for Resistance</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–5</td>
+<td>Stage I</td>
+<td>Minor Whisper</td>
+<td>DC 10 (WIS)</td>
+</tr>
+<tr>
+<td>6–10</td>
+<td>Stage II</td>
+<td>Twisted Gift</td>
+<td>DC 12 (CHA)</td>
+</tr>
+<tr>
+<td>11–15</td>
+<td>Stage III</td>
+<td>Soul Scar</td>
+<td>DC 15 (INT)</td>
+</tr>
+<tr>
+<td>16+</td>
+<td>Stage IV</td>
+<td>Consuming Form</td>
+<td>DC 18 (WIS or CHA)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>DM’s Discretion:</strong> Despair score may rise based on roleplay, narrative failures, exposure to corrupted artifacts, witnessing atrocities, or willingly accepting Xevir's gifts.</li>
+<li><strong>Mutation Save:</strong> On gaining a new mutation, the character may attempt a saving throw. On success, the mutation is <strong>suppressed</strong> but not removed.</li>
+</ul>
+<hr />
+<h2 id="mutation-roll-example-stage-ii">🎲 Mutation Roll Example (Stage II)</h2>
+<blockquote>
+<p><strong>Character Despair Score:</strong> 9
+<strong>Category:</strong> <em>Twisted Gifts (d31–60)</em>
+<strong>Mutation Roll:</strong> d100 → 43
+<strong>Result:</strong></p>
+</blockquote>
+<hr />
+<h3 id="obsessive-gaze">🎭 Obsessive Gaze</h3>
+<p><em>Twisted Gift</em>
+<strong>Type:</strong> Action (1/Short Rest)
+<strong>Save:</strong> Charisma DC 14
+<strong>Effect:</strong>
+Fix your gaze on a humanoid within 30 feet. If they fail, they become <strong>Obsessed</strong> (Charmed) for 1 minute. They constantly seek your approval. Ends if you harm them.</p>
+<blockquote>
+<p>💔 <strong>Cost:</strong>
+If the creature dies while under this effect, you suffer <strong>1 Despair</strong> and dream about them nightly. The memory remains burned into your subconscious.</p>
+</blockquote>
+<hr />
+<h2 id="redemption-mechanics">🔥 Redemption Mechanics</h2>
+<p>Characters may <strong>attempt to reduce Despair</strong> (or remove a mutation) through extreme acts of faith, atonement, or metaphysical re-alignment.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Path</strong></th>
+<th><strong>Mechanic</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Divine Purge</td>
+<td>Cast <em>Greater Restoration</em> and succeed DC 18 WIS Save → remove 1 mutation</td>
+</tr>
+<tr>
+<td>Self-Sacrifice</td>
+<td>Give up something deeply tied to your identity (DM defines) → -1 Despair</td>
+</tr>
+<tr>
+<td>Egregor Counterforce</td>
+<td>Fulfill the opposite emotional act of the mutation’s source → suppress it</td>
+</tr>
+<tr>
+<td>Blood Cleansing</td>
+<td>Receive blood from a divine host (e.g. Aisyle) → reroll mutation table</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🔐 <em>Note: Some mutations are permanent unless </em><em>Sólvenar's Light</em><em> or equivalent divine judgment intervenes.</em></p>
+</blockquote>
+<hr />
+<h2 id="art-prompt-example-for-illustratorai">🎨 Art Prompt Example (for Illustrator/AI)</h2>
+<p><strong>Mutation Concept:</strong> “Flesh fractals growing over one eye, hiding iris behind golden glass shards. Shadowy hands erupt from spine under stress.”</p>
+<hr />
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

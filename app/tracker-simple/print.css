@@ -1,0 +1,453 @@
+/* Print Stylesheet for Soul's Harmony Tracker */
+
+@media print {
+    /* Reset for print */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+        background: transparent !important;
+        color: black !important;
+    }
+    
+    body {
+        font-family: 'Times New Roman', serif;
+        font-size: 12pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+    }
+    
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+    
+    /* Header */
+    .main-header {
+        text-align: center;
+        margin-bottom: 20pt;
+        padding: 10pt;
+        border: 2pt solid black;
+        page-break-inside: avoid;
+    }
+    
+    .main-header h1 {
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 5pt;
+    }
+    
+    .main-header p {
+        font-size: 10pt;
+        font-style: italic;
+    }
+    
+    /* Character Info */
+    .character-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15pt;
+        padding: 8pt;
+        border: 1pt solid black;
+        page-break-inside: avoid;
+    }
+    
+    .character-name {
+        display: flex;
+        align-items: center;
+        gap: 5pt;
+    }
+    
+    .character-name input {
+        border: none;
+        border-bottom: 1pt solid black;
+        background: transparent;
+        padding: 2pt;
+        font-size: 10pt;
+        min-width: 150pt;
+    }
+    
+    /* Hide interactive elements */
+    .quick-actions,
+    .action-btn,
+    .resonance-btn,
+    .choir-btn,
+    .dice-btn,
+    .clear-btn,
+    .add-btn,
+    .invert-btn,
+    .influence-btn,
+    .help-toggle,
+    button {
+        display: none !important;
+    }
+    
+    /* Layout adjustments */
+    .main-grid {
+        display: block;
+        margin-bottom: 15pt;
+    }
+    
+    .left-column,
+    .right-column {
+        width: 100%;
+        margin-bottom: 10pt;
+    }
+    
+    /* Section styling */
+    .tracker-section {
+        margin-bottom: 15pt;
+        padding: 10pt;
+        border: 1pt solid black;
+        page-break-inside: avoid;
+    }
+    
+    .tracker-section h2 {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 8pt;
+        padding-bottom: 3pt;
+        border-bottom: 1pt solid black;
+    }
+    
+    /* Progress bars - show as numbered boxes */
+    .progress-container {
+        margin-bottom: 10pt;
+    }
+    
+    .progress-bar {
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        gap: 1pt;
+        margin-bottom: 5pt;
+    }
+    
+    .progress-box {
+        width: 8pt;
+        height: 8pt;
+        border: 0.5pt solid black;
+        display: inline-block;
+    }
+    
+    .progress-box.filled {
+        background: black !important;
+    }
+    
+    /* Milestones */
+    .milestones {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8pt;
+        margin-top: 3pt;
+    }
+    
+    .milestone {
+        padding: 1pt 3pt;
+        border: 0.5pt solid black;
+        font-size: 7pt;
+    }
+    
+    .milestone.reached {
+        background: black !important;
+        color: white !important;
+    }
+    
+    /* Resonance pools */
+    .resonance-pool {
+        display: flex;
+        gap: 2pt;
+        margin-bottom: 8pt;
+    }
+    
+    .resonance-circle {
+        width: 10pt;
+        height: 10pt;
+        border: 0.5pt solid black;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
+    .resonance-circle.filled {
+        background: black !important;
+    }
+    
+    /* Bonds */
+    .bonds-container {
+        margin-bottom: 10pt;
+    }
+    
+    .bond-slot {
+        margin-bottom: 8pt;
+        padding: 5pt;
+        border: 0.5pt solid black;
+    }
+    
+    .bond-select {
+        border: none;
+        border-bottom: 0.5pt solid black;
+        background: transparent;
+        width: 100%;
+        padding: 2pt;
+        font-size: 9pt;
+    }
+    
+    .bond-description {
+        font-size: 8pt;
+        font-style: italic;
+        margin: 3pt 0;
+    }
+    
+    .bond-status {
+        font-size: 9pt;
+        font-weight: bold;
+    }
+    
+    /* Divine influence */
+    .divine-influence h3 {
+        font-size: 11pt;
+        margin-bottom: 5pt;
+    }
+    
+    .current-influence {
+        padding: 5pt;
+        border-left: 2pt solid black;
+        font-style: italic;
+        font-size: 9pt;
+    }
+    
+    /* Temporary despair */
+    .temp-despair-boxes {
+        display: flex;
+        gap: 3pt;
+        margin-bottom: 8pt;
+    }
+    
+    .temp-box {
+        width: 15pt;
+        height: 15pt;
+        border: 1pt solid black;
+        display: inline-block;
+    }
+    
+    .temp-box.filled {
+        background: black !important;
+    }
+    
+    .temp-warning {
+        font-size: 8pt;
+        font-style: italic;
+    }
+    
+    /* Memory tracker */
+    .memory-boxes {
+        display: flex;
+        gap: 1pt;
+        flex-wrap: wrap;
+        margin-bottom: 5pt;
+    }
+    
+    .memory-box {
+        width: 6pt;
+        height: 6pt;
+        border: 0.5pt solid black;
+        display: inline-block;
+    }
+    
+    .memory-box.lost {
+        background: black !important;
+    }
+    
+    /* Bottom section adjustments */
+    .bottom-section {
+        display: block;
+    }
+    
+    /* Dice section - hide results but show labels */
+    .dice-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10pt;
+        margin-bottom: 10pt;
+    }
+    
+    .dice-group {
+        padding: 8pt;
+        border: 0.5pt solid black;
+    }
+    
+    .dice-group h3 {
+        font-size: 10pt;
+        margin-bottom: 5pt;
+    }
+    
+    .dice-result {
+        min-height: 30pt;
+        padding: 5pt;
+        border: 0.5pt solid black;
+        font-family: 'Courier New', monospace;
+        font-size: 8pt;
+    }
+    
+    /* Roll history */
+    .roll-history {
+        page-break-inside: avoid;
+    }
+    
+    .history-container {
+        max-height: none;
+        border: 0.5pt solid black;
+        padding: 5pt;
+        font-size: 8pt;
+    }
+    
+    .history-entry {
+        border-bottom: 0.5pt solid #ccc;
+        padding: 2pt 0;
+    }
+    
+    /* Mutations table */
+    .mutations-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 8pt;
+        page-break-inside: avoid;
+    }
+    
+    .mutations-table th,
+    .mutations-table td {
+        padding: 3pt;
+        border: 0.5pt solid black;
+        text-align: left;
+    }
+    
+    .mutations-table th {
+        background: #f0f0f0 !important;
+        font-weight: bold;
+    }
+    
+    /* Help section - simplified for print */
+    .help-section {
+        page-break-before: always;
+    }
+    
+    .help-content {
+        display: block !important;
+        padding: 10pt;
+        border: 1pt solid black;
+    }
+    
+    .help-grid {
+        display: block;
+    }
+    
+    .help-item {
+        margin-bottom: 10pt;
+        padding: 5pt;
+        border-left: 2pt solid black;
+        page-break-inside: avoid;
+    }
+    
+    .help-item h4 {
+        font-size: 11pt;
+        font-weight: bold;
+        margin-bottom: 3pt;
+    }
+    
+    .help-item p {
+        font-size: 9pt;
+        line-height: 1.3;
+    }
+    
+    /* Hide modal completely */
+    .modal {
+        display: none !important;
+    }
+    
+    /* Score displays */
+    .score-display {
+        font-weight: bold;
+        font-size: 11pt;
+    }
+    
+    .bonds-count {
+        font-weight: bold;
+    }
+    
+    /* Threshold status */
+    .threshold-status {
+        padding: 5pt;
+        border-left: 2pt solid black;
+        font-style: italic;
+        font-size: 9pt;
+    }
+    
+    /* Page breaks */
+    .tracker-section.egregor-section,
+    .tracker-section.despair-section {
+        page-break-inside: avoid;
+    }
+    
+    .mutations-section {
+        page-break-before: always;
+    }
+    
+    /* Ensure readability */
+    .crawling-choir-effects h3 {
+        font-size: 11pt;
+        margin-bottom: 5pt;
+    }
+    
+    .memory-tracker h4 {
+        font-size: 10pt;
+        margin-bottom: 3pt;
+    }
+    
+    /* Print-specific content */
+    .print-note {
+        display: block !important;
+        font-size: 8pt;
+        font-style: italic;
+        text-align: center;
+        margin: 10pt 0;
+        page-break-inside: avoid;
+    }
+    
+    /* Character sheet footer */
+    .print-footer {
+        position: fixed;
+        bottom: 10pt;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 8pt;
+        border-top: 0.5pt solid black;
+        padding-top: 3pt;
+    }
+}
+
+/* Print-specific elements (hidden on screen) */
+.print-only {
+    display: none;
+}
+
+@media print {
+    .print-only {
+        display: block !important;
+    }
+}
+
+/* Page break utilities */
+@media print {
+    .page-break-before {
+        page-break-before: always;
+    }
+    
+    .page-break-after {
+        page-break-after: always;
+    }
+    
+    .page-break-inside-avoid {
+        page-break-inside: avoid;
+    }
+}
