@@ -16,8 +16,14 @@ class SoulsHarmonyTracker {
             bonds: [null, null, null],
             bondStates: ['empty', 'empty', 'empty'],
             divineInfluence: null,
+            memoryFragments: 0,
             mutations: [],
             rollHistory: [],
+            deityMutations: { xevir: [], ikris: [], naivara: [], hive: [], choir: [] },
+            visionTokens: 0,
+            visionHistory: [],
+            activeInfluences: [],
+            mutationInteractions: [],
             lastDespairThreshold: 0
         };
     }
@@ -104,10 +110,57 @@ class SoulsHarmonyTracker {
 
     resetCharacter() {
         if (confirm('Reset character to default state? This cannot be undone.')) {
+            // Replace state with default state
             this.state = this.getDefaultState();
+            
+            // Remove local storage entry
+            localStorage.removeItem(window.GAME_DATA.AUTO_SAVE_CONFIG.storageKey);
+            
+            // Clear UI selections
             document.getElementById('characterName').value = '';
-            this.addToHistory('Character reset to default state.');
+            
+            // Clear influence selection highlight (if exists)
+            const influenceElements = document.querySelectorAll('.divine-influence-option.selected');
+            influenceElements.forEach(el => el.classList.remove('selected'));
+            
+            // Clear memory boxes (if exists)
+            const memoryBoxes = document.querySelectorAll('.memory-box.filled');
+            memoryBoxes.forEach(box => box.classList.remove('filled'));
+            
+            // Clear per-deity mutation lists and counts (if exists)
+            const deityMutationLists = document.querySelectorAll('.deity-mutations-list');
+            deityMutationLists.forEach(list => list.innerHTML = '');
+            
+            const mutationCounts = document.querySelectorAll('.mutation-count');
+            mutationCounts.forEach(count => count.textContent = '0');
+            
+            // Clear roll history area
+            const rollHistoryArea = document.getElementById('rollHistory');
+            if (rollHistoryArea) {
+                rollHistoryArea.innerHTML = '';
+            }
+            
+            // Clear vision tokens/history (if exists)
+            const visionTokensDisplay = document.getElementById('visionTokensDisplay');
+            if (visionTokensDisplay) {
+                visionTokensDisplay.textContent = '0';
+            }
+            
+            const visionHistoryArea = document.getElementById('visionHistory');
+            if (visionHistoryArea) {
+                visionHistoryArea.innerHTML = '';
+            }
+            
+            // Call required update methods
             this.updateDisplay();
+            this.updateMutationsTable();
+            this.updateRollHistory();
+            this.checkMutationInteractions();
+            this.updatePurificationOptions();
+            
+            // Log and show notification
+            this.addToHistory('Character reset to default state.');
+            this.showNotification('Character reset to default state successfully!', 'info');
         }
     }
 
@@ -275,6 +328,26 @@ class SoulsHarmonyTracker {
             currentInfluence.textContent = deityNames[deity] || 'No influence selected';
         }
         this.addToHistory(`Divine influence set to ${deity}`);
+    }
+
+    // --- MUTATION AND INTERACTION METHODS ---
+
+    updateMutationsTable() {
+        // Update mutations display - stub method for compatibility
+        // Implementation would update any mutations table UI elements
+        console.log('updateMutationsTable called');
+    }
+
+    checkMutationInteractions() {
+        // Check for mutation interactions - stub method for compatibility
+        // Implementation would analyze current mutations for conflicts/synergies
+        console.log('checkMutationInteractions called');
+    }
+
+    updatePurificationOptions() {
+        // Update purification options display - stub method for compatibility
+        // Implementation would refresh available purification rituals
+        console.log('updatePurificationOptions called');
     }
 
     // --- DM TOOLS ---
