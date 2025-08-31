@@ -44,6 +44,5 @@
 ## 🧠 DM Hooks
 - A spark could awaken a player’s hidden power, dream, or memory.
 - A relic might whisper in firelight, revealing secrets — or lies.
-- A dying figure may whisper:  
-  > *"You... carry the warmth. I see it in your eyes. The First Sun burns in you still..."*
+> *"You... carry the warmth. I see it in your eyes. The First Sun burns in you still..."*
 
