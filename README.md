@@ -1,128 +1,212 @@
-# Soul's Harmony Tracker - Final Calibration
+# Soul's Harmony - Unified App
 
-Interactive web-based character tracker for D&D 5e Soul's Harmony homebrew system. This is the **final calibrated version** featuring dual-progression mechanics (Egregor vs Despair), divine corruption tracking, Player/DM view toggle, and comprehensive character management.
+🌟 **A comprehensive D&D 5e Soul's Harmony tracker with integrated lore library**
 
-## Core Features
+![Soul's Harmony Launcher](https://github.com/user-attachments/assets/b7af9f57-4746-44f0-85a5-e4b82080f991)
 
-### Player/DM View Toggle
-- **Player View**: Shows essential character information and player-accessible actions
-- **DM View**: Reveals DM tools, divine influence controls, mutation systems, and advanced features
-- Toggle in the top-right corner of the interface
+## 🚀 Features
 
-### Character Management
-- **Manual Save/Load**: No automatic saving on startup - players start with a fresh sheet
-- **Export/Import**: JSON-based character file exchange
-- **Reset Character**: Complete character reset with confirmation dialog
+### 🎯 Unified Launcher
+- **Tab-based interface** for seamless switching between components
+- **Theme toggle** between Xevir (dark/gold) and Naivara (ember) themes
+- **Responsive design** that works on desktop and mobile
+- **Iframe integration** for smooth component loading
 
-## Core Mechanics
+### ⚔️ Advanced Tracker
+- **Complete Soul's Harmony system** with Egregor vs Despair mechanics
+- **Player/DM view toggle** with appropriate content filtering
+- **Temporary Despair tracking** with 3→1 conversion system
+- **Resonance Points management** and threshold indicators
+- **Bond tracking system** with anchored bonds (0-3)
+- **Save/Load/Export/Import** character data (JSON format)
+- **Print-to-PDF** functionality for session notes
+- **Action history** with timestamped logging
 
-### Egregor Score (0-20)
-Represents spiritual harmony and positive growth with thresholds at:
-- **5 (Resonant)**: Resistance to charm effects
-- **10 (Harmonized)**: Enhanced bond powers
-- **15 (Incarnate)**: Radiate holy light
-- **20 (Nexus)**: Perfect spiritual harmony
+### 🎲 Simple Tracker
+- **Lightweight version** for quick games and one-shots
+- **Essential tracking** without complex mechanics
+- **Fast setup** and minimal interface
 
-### Despair Score (0-20)
-Represents corruption and negative influences that attract divine entities.
+### 📚 Lore Library (Wiki)
+- **99 lore entries** automatically generated from Obsidian vault
+- **Real-time search** with instant filtering
+- **Player/GM mode** to hide sensitive content
+- **Category filters** for easy navigation
+- **Clean typography** and responsive design
+- **Cross-references** between entries
 
-### Resonance Points (0-10)
-Temporary resource pool that restores to 10 on Long Rest. Used for:
-- **Resist Action**: Spend 3 Resonance to reduce Temporary Despair by 1
-- **Ability Enhancement**: Various costs for different abilities
-- **Bond Powers**: Activating anchored bond abilities
+## 🎮 Quick Start
 
-### Temporary Despair System
-- **Accumulation**: Temp Despair accumulates during play without automatic conversion
-- **Resist**: Spend 3 Resonance Points to reduce Temp Despair by 1 (player agency)
-- **Long Rest**: Converts Temp to Permanent by multiples of 3, clears remaining Temp to 0
-- **Player Control**: Players manage despair buildup through strategic resource use
+### Local Usage
+1. **Clone or download** this repository
+2. **Open a terminal** in the project directory
+3. **Start a local server**:
+   ```bash
+   cd app
+   python -m http.server 8000
+   ```
+4. **Open your browser** to `http://localhost:8000/launcher.html`
 
-### Anchored Bonds (0-3)
-Spiritual connections that can be inverted when Despair exceeds Egregor.
+### GitHub Pages (Live Version)
+Visit the deployed version at: `https://yourusername.github.io/-Soul-bond-despair/launcher.html`
 
-## Gameplay Flow
+## 📁 Project Structure
 
-### During Play
-1. **Temporary Despair** accumulates from various sources
-2. **Players choose** when to use Resist action (3 Resonance → -1 Temp Despair)
-3. **Resource management** becomes crucial for survival
+```
+/
+├─ app/                          # 🌐 Web application (served by GitHub Pages)
+│  ├─ launcher.html              # 🚀 Main unified launcher
+│  ├─ tracker-advanced/          # ⚔️ Advanced Soul's Harmony tracker
+│  │  ├─ index.html
+│  │  ├─ script.js
+│  │  ├─ styles.css
+│  │  ├─ print.css
+│  │  └─ data.js
+│  ├─ tracker-simple/            # 🎲 Simple tracker for quick games
+│  │  └─ [same structure as advanced]
+│  └─ wiki/                      # 📚 Generated static wiki
+│     ├─ index.html              # Wiki homepage with search
+│     ├─ pages/                  # Individual wiki pages
+│     ├─ assets/                 # Images and CSS
+│     └─ search_index.json       # Search functionality
+│
+├─ vault/                        # 📝 Source Obsidian vault (markdown files)
+├─ vault_clean/                  # 🧹 Cleaned/processed vault (auto-generated)
+│
+├─ tools/                        # 🔧 Build scripts
+│  ├─ clean_vault.py             # Markdown processing & link fixing
+│  └─ build_wiki.py              # Static site generation
+│
+├─ .github/workflows/            # ⚙️ Automation
+│  └─ pages.yml                  # Auto-rebuild wiki on push
+│
+└─ README.md                     # 📖 This file
+```
 
-### Long Rest Process
-1. **Resonance restored** to 10
-2. **Temp Despair conversion**: floor(temp/3) becomes permanent despair
-3. **Temp Despair cleared** to 0
-4. **Fresh start** for the next day
+## 🔧 Development
 
-### DM Tools
-- **Divine Influence**: Track and set active divine corruption
-- **Psychic Stain**: Apply temporary despair effects
-- **Mutation System**: Track divine marks and mutations
-- **Dice Rolling**: d100 rolls for divine influence
-- **History Logging**: Complete action and roll history
+### Adding Content to the Wiki
+1. **Add markdown files** to the `vault/` directory
+2. **Run the build process**:
+   ```bash
+   python tools/clean_vault.py    # Clean and standardize
+   python tools/build_wiki.py     # Generate static site
+   ```
+3. **The wiki updates automatically** via GitHub Actions when you push to main
 
-## Technical Features
+### Customizing the Trackers
+- **Advanced tracker**: Edit files in `app/tracker-advanced/`
+- **Simple tracker**: Edit files in `app/tracker-simple/`
+- **Styling**: Both trackers share similar CSS structure for consistency
 
-### No Auto-Loading
-- Application starts with a fresh character sheet
-- Players must manually load saved characters
-- Prevents accidental overwrites and ensures intentional character loading
+### Build Scripts
+- **`tools/clean_vault.py`**: 
+  - Slugifies filenames to URL-safe format
+  - Fixes internal links between markdown files
+  - Consolidates images to `/assets/` folder
+  - Generates cleanup reports and broken link lists
 
-### Manual Persistence
-- **Save Button**: Manually save character state to browser storage
-- **Load Button**: Manually load previously saved character
-- **Export**: Download character as JSON file
-- **Import**: Upload and load character from JSON file
+- **`tools/build_wiki.py`**:
+  - Converts markdown to HTML with proper navigation
+  - Generates search index for real-time filtering
+  - Creates responsive wiki interface
+  - Handles cross-references and images
 
-### View Management
-- **Player View**: Essential tracking and player actions only
-- **DM View**: Complete feature set including mutation tracking, divine influence, and DM tools
-- **Responsive Toggle**: Instant switching between views
+## 🎨 Themes
 
-## Interface Elements
+### Xevir Theme (Default)
+- **Dark background** with gold accents
+- **Professional appearance** for serious campaigns
+- **High contrast** for readability
 
-### Progress Bars
-- Visual representation of Egregor and Despair scores
-- Clear milestone indicators at key thresholds
-- Instant visual feedback for score changes
+### Naivara Theme
+- **Ember/orange color scheme** 
+- **Warmer, more mystical feel**
+- **Toggle available** in top-right corner
 
-### Resonance Pool
-- Visual circles representing available Resonance Points
-- Clear indication of spent vs available resources
-- Instant updates on expenditure
+## 🎯 Core Mechanics (Advanced Tracker)
 
-### Temporary Despair Tracking
-- Visual boxes showing current Temporary Despair level
-- Support for high accumulation (up to 15 boxes)
-- Clear visual feedback for resist actions
+### Dual Progression System
+- **Egregor Score (0-20)**: Spiritual harmony and positive growth
+- **Despair Score (0-20)**: Corruption and negative influences
+- **Dynamic balance** between light and shadow
 
-### History System
-- Comprehensive logging of all actions and rolls
-- Timestamped entries for session tracking
-- Clearable history for new sessions
+### Resource Management
+- **Resonance Points (0-10)**: Temporary resource for abilities
+- **Temporary Despair**: Accumulates during play, converts at rest
+- **Strategic decisions** on when to resist vs. accept corruption
 
-## Installation & Usage
+### Player Agency
+- **Manual save/load** prevents accidental data loss
+- **Export/Import** for character sharing and backups
+- **Player/DM views** for appropriate information hiding
 
-1. **Open index.html** in any modern web browser
-2. **No server required** - runs entirely client-side
-3. **Enter character name** and begin tracking
-4. **Use view toggle** to switch between Player and DM views
-5. **Save progress** manually using the Save button
+## 📖 Lore Integration
 
-## File Structure
+### Deep Worldbuilding
+- **99 interconnected entries** covering characters, locations, mechanics
+- **Consistent mythology** around Xevir, Naivara, and the Cosmic Drowning
+- **Player-friendly** and GM-only content separation
 
-- `index.html` - Main interface with Player/DM view toggle
-- `script.js` - Core tracking logic and mechanics
-- `styles.css` - Visual styling and responsive design
-- `print.css` - Print-optimized layout
-- `data.js` - Game data, mutations, and reference tables
+### Search & Discovery
+- **Instant search** across all content
+- **Category filtering** for specific content types
+- **Cross-references** between related entries
 
-## Version History
+## 🚀 Deployment
 
-**v2.0 - Final Calibration**
-- Added Player/DM view toggle
-- Implemented manual save/load system (no auto-loading)
-- Corrected Long Rest mechanics (Temp→Permanent by multiples of 3)
-- Fixed Resist action (3 Resonance → -1 Temp)
-- Added comprehensive character reset functionality
-- Enhanced UI feedback and history tracking
+### Automatic Deployment
+- **GitHub Actions** automatically rebuilds the wiki when you push changes
+- **No manual intervention** required for content updates
+- **Fast deployment** via GitHub Pages
+
+### Manual Deployment
+```bash
+# Build the complete application
+python tools/clean_vault.py
+python tools/build_wiki.py
+
+# Deploy to any static hosting service
+# Just upload the 'app/' folder
+```
+
+## 🔍 Technical Details
+
+### Performance
+- **Vanilla JavaScript** - no framework dependencies
+- **Static generation** - fast loading and offline-capable
+- **Responsive design** - works on all device sizes
+
+### Browser Compatibility
+- **Modern browsers** (Chrome, Firefox, Safari, Edge)
+- **Mobile-friendly** interface
+- **Graceful degradation** for older browsers
+
+### Data Persistence
+- **LocalStorage** for character data
+- **JSON import/export** for portability
+- **No server required** - fully client-side
+
+## 🤝 Contributing
+
+### Adding Content
+1. Add markdown files to `vault/`
+2. Use standard markdown with `[[WikiLinks]]` for cross-references
+3. Add `gmOnly: true` frontmatter to hide content from players
+
+### Reporting Issues
+- Use GitHub Issues for bug reports
+- Include browser and operating system information
+- Provide steps to reproduce the problem
+
+### Development Setup
+1. Clone the repository
+2. Install Python dependencies: `pip install markdown`
+3. Run build scripts to generate content
+4. Start local server for testing
+
+---
+
+**🌟 Soul's Harmony Campaign System** - Where despair and hope dance in eternal balance.
+
+*Built with ❤️ for immersive tabletop gaming*

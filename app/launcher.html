@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul's Harmony - Unified App</title>
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --border-color: #444444;
+            --accent-gold: #d4af37;
+            --accent-ember: #ff6b35;
+            --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-color);
+            padding: 0 20px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-family: inherit;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            margin: 0 5px;
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button.active {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .content-frame {
+            width: 100%;
+            height: calc(100vh - 140px);
+            border: none;
+            background: var(--bg-primary);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 140px);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        /* Naivara (Ember) Theme */
+        body.ember-theme {
+            --bg-primary: #2c1810;
+            --bg-secondary: #3d2414;
+            --accent-gold: #ff6b35;
+            --border-color: #5a3a25;
+        }
+
+        @media (max-width: 768px) {
+            .tab-container {
+                flex-wrap: wrap;
+                padding: 0 10px;
+            }
+            
+            .tab-button {
+                padding: 12px 20px;
+                font-size: 1rem;
+                margin: 2px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .theme-toggle {
+                position: relative;
+                margin: 10px auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Naivara</button>
+    
+    <div class="header">
+        <h1>Soul's Harmony</h1>
+        <p>Unified Tracker & Lore Library</p>
+    </div>
+
+    <div class="tab-container">
+        <button class="tab-button active" onclick="switchTab('advanced')">Advanced Tracker</button>
+        <button class="tab-button" onclick="switchTab('simple')">Simple Tracker</button>
+        <button class="tab-button" onclick="switchTab('wiki')">Lore Library</button>
+    </div>
+
+    <iframe id="contentFrame" class="content-frame" src="tracker-advanced/index.html"></iframe>
+
+    <script>
+        let currentTheme = 'xevir';
+        
+        function switchTab(tab) {
+            // Update active tab button
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update iframe source
+            const frame = document.getElementById('contentFrame');
+            switch(tab) {
+                case 'advanced':
+                    frame.src = 'tracker-advanced/index.html';
+                    break;
+                case 'simple':
+                    frame.src = 'tracker-simple/index.html';
+                    break;
+                case 'wiki':
+                    frame.src = 'wiki/index.html';
+                    break;
+            }
+        }
+        
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            
+            if (currentTheme === 'xevir') {
+                body.classList.add('ember-theme');
+                button.textContent = '🌟 Xevir';
+                currentTheme = 'naivara';
+            } else {
+                body.classList.remove('ember-theme');
+                button.textContent = '🌙 Naivara';
+                currentTheme = 'xevir';
+            }
+            
+            // Store theme preference
+            localStorage.setItem('soulsHarmonyTheme', currentTheme);
+        }
+        
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('soulsHarmonyTheme');
+            if (savedTheme === 'naivara') {
+                toggleTheme();
+            }
+        });
+        
+        // Handle deep linking from trackers to wiki
+        window.addEventListener('message', (event) => {
+            if (event.data.action === 'openWiki') {
+                switchTab('wiki');
+                // Optional: Pass the specific page to open
+                if (event.data.page) {
+                    const frame = document.getElementById('contentFrame');
+                    frame.src = `wiki/index.html#${event.data.page}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
