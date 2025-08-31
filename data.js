@@ -781,7 +781,7 @@ const THRESHOLD_AUTOMATION = {
 const AUTO_SAVE_CONFIG = {
     enabled: true,
     interval: 30000, // 30 seconds
-    storageKey: "soulsHarmonyTracker"
+    storageKey: "soulsHarmonyTrackerAdvanced"
 };
 
 // Export all data

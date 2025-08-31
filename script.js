@@ -77,9 +77,89 @@ class SoulsHarmonyTracker {
     // --- CORE MECHANICS ---
 
     gainTempDespair(amount = 1) {
+        const previousTemp = this.state.tempDespair;
+        const previousPerm = this.state.despairScore;
+        
+        // Apply core algorithm
         this.state.tempDespair += amount;
-        this.addToHistory(`Gained ${amount} Temporary Despair.`);
+        let conversions = 0;
+        
+        while (this.state.tempDespair >= 3) {
+            this.state.tempDespair -= 3;
+            this.state.despairScore += 1;
+            conversions++;
+        }
+        
+        // Check thresholds if conversions occurred
+        if (conversions > 0) {
+            this.checkDespairThresholds();
+        }
+        
+        // Update display and log
         this.updateDisplay();
+        this.logAction(previousTemp, previousPerm, conversions, amount);
+    }
+
+    checkDespairThresholds() {
+        const currentDespair = this.state.despairScore;
+        const lastThreshold = this.state.lastDespairThreshold || 0;
+        
+        // Check if we've crossed any thresholds
+        const thresholds = [5, 10, 15, 20];
+        for (const threshold of thresholds) {
+            if (currentDespair >= threshold && lastThreshold < threshold) {
+                this.triggerDespairThreshold(threshold);
+                this.state.lastDespairThreshold = threshold;
+            }
+        }
+    }
+
+    triggerDespairThreshold(threshold) {
+        const thresholdData = window.GAME_DATA.THRESHOLD_AUTOMATION?.despairMilestones?.[threshold];
+        if (thresholdData) {
+            let message = `Despair Threshold ${threshold} reached: ${thresholdData.warnings}`;
+            if (thresholdData.autoTriggers) {
+                message += ` | Auto-triggers: ${thresholdData.autoTriggers.join(', ')}`;
+            }
+            this.addToHistory(message);
+            this.showNotification(`Despair Threshold ${threshold} reached!`, 'error');
+            
+            // Auto-trigger mutation roll if at mutation thresholds
+            if (threshold >= 10 && this.state.divineInfluence) {
+                this.rollMutationForDeity(this.state.divineInfluence);
+            }
+        }
+    }
+
+    rollMutationForDeity(deityKey) {
+        const deity = window.GAME_DATA.DIVINE_ENTITIES?.[deityKey];
+        if (deity?.mutationTable) {
+            const roll = Math.floor(Math.random() * 100) + 1;
+            const mutations = deity.mutationTable.mutations || [];
+            
+            // Find mutation that matches roll
+            const mutation = mutations.find(m => 
+                Array.isArray(m.roll) ? roll >= m.roll[0] && roll <= m.roll[1] : roll === m.roll
+            );
+            
+            if (mutation) {
+                this.addToHistory(`Mutation Roll (d100=${roll}): ${mutation.name} - ${mutation.effect}`);
+                this.showNotification(`New Mutation: ${mutation.name}`, 'error');
+            } else {
+                this.addToHistory(`Mutation Roll (d100=${roll}): No mutation triggered`);
+            }
+        }
+    }
+
+    logAction(previousTemp, previousPerm, conversions, amount) {
+        let message = `Gained ${amount} Temporary Despair`;
+        if (conversions > 0) {
+            message += ` → ${conversions} conversion(s) to Permanent Despair`;
+            message += ` (${previousTemp}→${this.state.tempDespair} temp, ${previousPerm}→${this.state.despairScore} perm)`;
+        } else {
+            message += ` (${previousTemp}→${this.state.tempDespair} temp)`;
+        }
+        this.addToHistory(message);
     }
 
     resistDespair() {
@@ -99,12 +179,12 @@ class SoulsHarmonyTracker {
     }
 
     performLongRest() {
-        const conversions = Math.floor(this.state.tempDespair / 3);
-        this.state.despairScore += conversions;
+        // Clear temp despair only (Advanced tracker: immediate conversion rule)
+        const clearedTemp = this.state.tempDespair;
         this.state.tempDespair = 0;
         this.state.resonancePoints = 10;
         
-        this.addToHistory(`Long Rest: ${conversions} Temp converted to Permanent. Resonance restored to 10.`);
+        this.addToHistory(`Long Rest: ${clearedTemp} Temporary Despair cleared. Resonance restored to 10.`);
         this.updateDisplay();
     }
 
@@ -374,7 +454,7 @@ class SoulsHarmonyTracker {
 
     saveState() {
         try {
-            localStorage.setItem('soulsHarmonyTracker', JSON.stringify(this.state));
+            localStorage.setItem(window.GAME_DATA.AUTO_SAVE_CONFIG.storageKey, JSON.stringify(this.state));
             this.showNotification('Character saved successfully!');
         } catch (error) {
             this.showNotification('Error saving character: ' + error.message, 'error');
@@ -383,7 +463,7 @@ class SoulsHarmonyTracker {
 
     loadState() {
         try {
-            const saved = localStorage.getItem('soulsHarmonyTracker');
+            const saved = localStorage.getItem(window.GAME_DATA.AUTO_SAVE_CONFIG.storageKey);
             if (saved) {
                 const savedState = JSON.parse(saved);
                 this.state = { ...this.getDefaultState(), ...savedState };
