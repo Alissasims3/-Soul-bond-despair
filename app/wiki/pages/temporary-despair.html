@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Despair - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Temporary Despair</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <h1 id="temporary-despair-system">Temporary Despair System</h1>
+<p>This document describes the complete implementation of the Temporary Despair tracking system according to the Xevir rules.</p>
+<h2 id="final-rules-block">Final Rules Block</h2>
+<h3 id="core-mechanics">Core Mechanics</h3>
+<ul>
+<li><strong>Temporary Despair (temp)</strong> is tracked as an integer value (0-2 after conversion)</li>
+<li><strong>Visual Display</strong>: Three boxes filled left to right (○○○ → ●○○ → ●●○ → converts)</li>
+<li><strong>Immediate Conversion</strong>: When temp reaches 3, it immediately converts to +1 Permanent Despair</li>
+<li><strong>Conversion Algorithm</strong>: <code>temp += N; while (temp &gt;= 3) { temp -= 3; perm += 1; }</code></li>
+<li><strong>Long Rest</strong>: Clears all temp despair, permanent despair unchanged</li>
+<li><strong>Remainder Preservation</strong>: Amounts &gt; 3 preserve remainder after conversion</li>
+</ul>
+<h3 id="psychic-stain-failure">Psychic Stain Failure</h3>
+<p>Psychic Stain failures <strong>always</strong> apply all three effects in this exact order:
+1. <strong>Psychic Damage</strong>: Apply damage as written in the source
+2. <strong>Temp Despair Gain</strong>: Default +1 unless source specifies different amount
+3. <strong>Conversion Check</strong>: If temp ≥ 3, convert immediately per algorithm
+4. <strong>Whisper/Corruption</strong>: Apply minor corruption/whisper appropriate to source</p>
+<h3 id="thresholds-and-mutations">Thresholds and Mutations</h3>
+<ul>
+<li><strong>Only permanent despair drives thresholds</strong> and mutation triggers</li>
+<li>Temporary despair does <strong>not</strong> count toward thresholds except via conversion</li>
+<li>Conversion triggers threshold checks immediately after perm despair increases</li>
+</ul>
+<h2 id="implementation-guide">Implementation Guide</h2>
+<h3 id="state-model">State Model</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">// Old (broken): tempDespair: [false, false, false]</span>
+<span class="c1">// New (correct): tempDespair: 0 (integer, 0-2 after conversion)</span>
+</code></pre></div>
+
+<h3 id="core-algorithm">Core Algorithm</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">gainTempDespair</span><span class="p">(</span><span class="nx">amount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">previousTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">previousPerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">despairScore</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Apply core algorithm</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">amount</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">conversions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">despairScore</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">conversions</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Check thresholds if conversions occurred</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">conversions</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">checkDespairThresholds</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Update display and log</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">updateDisplay</span><span class="p">();</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">logAction</span><span class="p">(</span><span class="nx">previousTemp</span><span class="p">,</span><span class="w"> </span><span class="nx">previousPerm</span><span class="p">,</span><span class="w"> </span><span class="nx">conversions</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">performLongRest</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Clear temp only, preserve perm</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Perm despair unchanged</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">updateDisplay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="psychic-stain-implementation">Psychic Stain Implementation</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">applyPsychicStain</span><span class="p">(</span><span class="nx">damage</span><span class="p">,</span><span class="w"> </span><span class="nx">tempGain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">whisperText</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// 1) Apply psychic damage first</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">damage</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">applyDamage</span><span class="p">(</span><span class="nx">damage</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 2) Gain temp despair and convert if needed</span>
+<span class="w">    </span><span class="nx">gainTempDespair</span><span class="p">(</span><span class="nx">tempGain</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 3) Apply whisper/corruption last</span>
+<span class="w">    </span><span class="nx">applyWhisper</span><span class="p">(</span><span class="nx">whisperText</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Log all effects in order</span>
+<span class="w">    </span><span class="nx">logPsychicStain</span><span class="p">(</span><span class="nx">damage</span><span class="p">,</span><span class="w"> </span><span class="nx">tempGain</span><span class="p">,</span><span class="w"> </span><span class="nx">whisperText</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="macro-outline">Macro Outline</h2>
+<h3 id="player-macros">Player Macros</h3>
+<div class="codehilite"><pre><span></span><code><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="nv">Temp</span><span class="w"> </span><span class="nv">Despair</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Click</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">gain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">temporary</span><span class="w"> </span><span class="nv">despair</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Automatically</span><span class="w"> </span><span class="nv">converts</span><span class="w"> </span><span class="nv">at</span><span class="w"> </span><span class="mi">3</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Shows</span><span class="w"> </span><span class="nv">current</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="ss">(</span><span class="nv">X</span><span class="o">/</span><span class="mi">3</span><span class="ss">)</span>
+
+<span class="o">+</span><span class="nv">N</span><span class="w"> </span><span class="nv">Temp</span><span class="w"> </span><span class="nv">Despair</span><span class="w"> </span><span class="ss">(</span><span class="nv">DM</span><span class="ss">)</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Input</span><span class="w"> </span><span class="nv">amount</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">bulk</span><span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="nv">gain</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Handles</span><span class="w"> </span><span class="nv">chained</span><span class="w"> </span><span class="nv">conversions</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">stacked</span><span class="w"> </span><span class="nv">effects</span>
+
+<span class="nv">Psychic</span><span class="w"> </span><span class="nv">Stain</span><span class="w"> </span><span class="nv">Failure</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Input</span>:<span class="w"> </span><span class="nv">damage</span><span class="w"> </span><span class="nv">amount</span>,<span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="nv">gain</span>,<span class="w"> </span><span class="nv">whisper</span><span class="w"> </span><span class="nv">text</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Applies</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">correct</span><span class="w"> </span><span class="nv">order</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Logs</span><span class="w"> </span><span class="nv">all</span><span class="w"> </span><span class="nv">effects</span>
+
+<span class="nv">Long</span><span class="w"> </span><span class="nv">Rest</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Clears</span><span class="w"> </span><span class="nv">temp</span><span class="w"> </span><span class="nv">despair</span><span class="w"> </span><span class="nv">only</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Permanent</span><span class="w"> </span><span class="nv">despair</span><span class="w"> </span><span class="nv">preserved</span>
+<span class="o">-</span><span class="w"> </span><span class="nv">Restores</span><span class="w"> </span><span class="nv">resonance</span><span class="w"> </span><span class="nv">points</span>
+</code></pre></div>
+
+<h3 id="dm-tools">DM Tools</h3>
+<div class="codehilite"><pre><span></span><code><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="n">Temp</span><span class="w"> </span><span class="p">(</span><span class="n">Correction</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Decreases</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="n">despair</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mi">1</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Cannot</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="mi">0</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nf">reverse</span><span class="w"> </span><span class="n">conversions</span>
+
+<span class="n">Manual</span><span class="w"> </span><span class="n">Clear</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Immediately</span><span class="w"> </span><span class="n">clear</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">temp</span>
+<span class="o">-</span><span class="w"> </span><span class="k">For</span><span class="w"> </span><span class="n">special</span><span class="w"> </span><span class="n">circumstances</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Logs</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">action</span>
+</code></pre></div>
+
+<h2 id="test-cases-acceptance-criteria">Test Cases &amp; Acceptance Criteria</h2>
+<h3 id="test-case-1-incremental-gain-123">Test Case 1: Incremental Gain (1→2→3)</h3>
+<ul>
+<li><strong>Start</strong>: temp=0, perm=0</li>
+<li><strong>Action</strong>: +1 temp → +1 temp → +1 temp</li>
+<li><strong>Expected</strong>: temp=0, perm=1 (converted on third +1)</li>
+<li><strong>✅ Validated</strong>: Working correctly</li>
+</ul>
+<h3 id="test-case-2-burst-gain-4-from-0">Test Case 2: Burst Gain (+4 from 0)</h3>
+<ul>
+<li><strong>Start</strong>: temp=0, perm=0  </li>
+<li><strong>Action</strong>: +4 temp</li>
+<li><strong>Expected</strong>: temp=1, perm=1 (4→1 remainder + 1 conversion)</li>
+<li><strong>✅ Validated</strong>: Working correctly</li>
+</ul>
+<h3 id="test-case-3-burst-gain-with-starting-temp-5-from-1">Test Case 3: Burst Gain with Starting Temp (+5 from 1)</h3>
+<ul>
+<li><strong>Start</strong>: temp=1, perm=0</li>
+<li><strong>Action</strong>: +5 temp</li>
+<li><strong>Expected</strong>: temp=0, perm=2 (6 total→0 remainder + 2 conversions)</li>
+<li><strong>Test</strong>: temp=1 + 5 = 6 total → 2 conversions → temp=0, perm=2</li>
+</ul>
+<h3 id="test-case-4-long-rest-behavior">Test Case 4: Long Rest Behavior</h3>
+<ul>
+<li><strong>Start</strong>: temp=2, perm=1</li>
+<li><strong>Action</strong>: Long Rest</li>
+<li><strong>Expected</strong>: temp=0, perm=1 (temp cleared, perm preserved)</li>
+<li><strong>✅ Validated</strong>: Working correctly</li>
+</ul>
+<h3 id="test-case-5-psychic-stain-failure">Test Case 5: Psychic Stain Failure</h3>
+<ul>
+<li><strong>Action</strong>: Psychic Stain (damage=3, temp=2, whisper="Custom text")</li>
+<li><strong>Expected Order</strong>: Damage applied → temp gained/converted → whisper shown</li>
+<li><strong>✅ Validated</strong>: Working correctly</li>
+</ul>
+<h3 id="test-case-6-edge-cases">Test Case 6: Edge Cases</h3>
+<ul>
+<li><strong>Multiple conversions in one action</strong>: +7 temp produces correct remainder</li>
+<li><strong>No double-conversion</strong>: Actions are deterministic</li>
+<li><strong>State consistency</strong>: Display always matches internal state</li>
+</ul>
+<h2 id="ui-controls-reference">UI Controls Reference</h2>
+<h3 id="visual-elements">Visual Elements</h3>
+<ul>
+<li><strong>Three Boxes</strong>: ○○○ (empty) → ●○○ (1 temp) → ●●○ (2 temp) → converts</li>
+<li><strong>Warning Text</strong>: "When temp reaches 3, immediately converts to +1 permanent Despair"</li>
+<li><strong>Button Colors</strong>: Green (+1), Blue (+N), Purple (Psychic), Orange (Clear), Red (DM)</li>
+</ul>
+<h3 id="button-functions">Button Functions</h3>
+<ul>
+<li><strong>+1 Temp</strong>: Standard temp gain, most common action</li>
+<li><strong>+N Temp</strong>: DM convenience for large amounts</li>
+<li><strong>Psychic Stain</strong>: Complete psychic stain failure flow</li>
+<li><strong>Clear Temp</strong>: Manual clear (for corrections)</li>
+<li><strong>-1 Temp</strong>: DM correction tool (clearly marked)</li>
+</ul>
+<h3 id="logging-format">Logging Format</h3>
+<div class="codehilite"><pre><span></span><code><span class="o">[</span><span class="n">Time</span><span class="o">]</span><span class="w"> </span><span class="nl">Source</span><span class="p">:</span><span class="w"> </span><span class="o">+</span><span class="n">N</span><span class="w"> </span><span class="n">temp</span><span class="p">(</span><span class="k">before</span><span class="err">→</span><span class="k">after</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">conversions</span><span class="p">,</span><span class="w"> </span><span class="k">before</span><span class="err">→</span><span class="k">after</span><span class="w"> </span><span class="n">perm</span><span class="p">)</span>
+<span class="o">[</span><span class="n">Time</span><span class="o">]</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nl">rest</span><span class="p">:</span><span class="w"> </span><span class="n">Resonance</span><span class="w"> </span><span class="n">restored</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="n">despair</span><span class="w"> </span><span class="n">cleared</span><span class="w"> </span><span class="p">(</span><span class="k">before</span><span class="err">→</span><span class="k">after</span><span class="p">)</span>
+<span class="o">[</span><span class="n">Time</span><span class="o">]</span><span class="w"> </span><span class="n">Psychic</span><span class="w"> </span><span class="nl">Stain</span><span class="p">:</span><span class="w"> </span><span class="n">Psychic</span><span class="w"> </span><span class="nl">damage</span><span class="p">:</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="o">+</span><span class="n">N</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="n">despair</span><span class="w"> </span><span class="p">(</span><span class="k">before</span><span class="err">→</span><span class="k">after</span><span class="p">),</span><span class="w"> </span><span class="nl">Whisper</span><span class="p">:</span><span class="w"> </span><span class="ss">&quot;text&quot;</span>
+</code></pre></div>
+
+<h2 id="implementation-status">Implementation Status</h2>
+<ul>
+<li>✅ Core algorithm (3→1 conversion with chaining)</li>
+<li>✅ UI display (three-box visual)</li>
+<li>✅ Control buttons (+1, +N, Psychic, Clear, -1)</li>
+<li>✅ Long rest behavior (temp only)</li>
+<li>✅ Psychic stain flow (damage→temp→convert→whisper)</li>
+<li>✅ Logging system (detailed action tracking)</li>
+<li>✅ State consistency (temp always 0-2 after conversion)</li>
+<li>✅ Threshold integration (only perm drives thresholds)</li>
+</ul>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

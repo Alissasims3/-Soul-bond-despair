@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readme - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Readme</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <h1 id="souls-harmony-tracker-final-calibration">Soul's Harmony Tracker - Final Calibration</h1>
+<p>Interactive web-based character tracker for D&amp;D 5e Soul's Harmony homebrew system. This is the <strong>final calibrated version</strong> featuring dual-progression mechanics (Egregor vs Despair), divine corruption tracking, Player/DM view toggle, and comprehensive character management.</p>
+<h2 id="core-features">Core Features</h2>
+<h3 id="playerdm-view-toggle">Player/DM View Toggle</h3>
+<ul>
+<li><strong>Player View</strong>: Shows essential character information and player-accessible actions</li>
+<li><strong>DM View</strong>: Reveals DM tools, divine influence controls, mutation systems, and advanced features</li>
+<li>Toggle in the top-right corner of the interface</li>
+</ul>
+<h3 id="character-management">Character Management</h3>
+<ul>
+<li><strong>Manual Save/Load</strong>: No automatic saving on startup - players start with a fresh sheet</li>
+<li><strong>Export/Import</strong>: JSON-based character file exchange</li>
+<li><strong>Reset Character</strong>: Complete character reset with confirmation dialog</li>
+</ul>
+<h2 id="core-mechanics">Core Mechanics</h2>
+<h3 id="egregor-score-0-20">Egregor Score (0-20)</h3>
+<p>Represents spiritual harmony and positive growth with thresholds at:
+- <strong>5 (Resonant)</strong>: Resistance to charm effects
+- <strong>10 (Harmonized)</strong>: Enhanced bond powers
+- <strong>15 (Incarnate)</strong>: Radiate holy light
+- <strong>20 (Nexus)</strong>: Perfect spiritual harmony</p>
+<h3 id="despair-score-0-20">Despair Score (0-20)</h3>
+<p>Represents corruption and negative influences that attract divine entities.</p>
+<h3 id="resonance-points-0-10">Resonance Points (0-10)</h3>
+<p>Temporary resource pool that restores to 10 on Long Rest. Used for:
+- <strong>Resist Action</strong>: Spend 3 Resonance to reduce Temporary Despair by 1
+- <strong>Ability Enhancement</strong>: Various costs for different abilities
+- <strong>Bond Powers</strong>: Activating anchored bond abilities</p>
+<h3 id="temporary-despair-system">Temporary Despair System</h3>
+<ul>
+<li><strong>Accumulation</strong>: Temp Despair accumulates during play without automatic conversion</li>
+<li><strong>Resist</strong>: Spend 3 Resonance Points to reduce Temp Despair by 1 (player agency)</li>
+<li><strong>Long Rest</strong>: Converts Temp to Permanent by multiples of 3, clears remaining Temp to 0</li>
+<li><strong>Player Control</strong>: Players manage despair buildup through strategic resource use</li>
+</ul>
+<h3 id="anchored-bonds-0-3">Anchored Bonds (0-3)</h3>
+<p>Spiritual connections that can be inverted when Despair exceeds Egregor.</p>
+<h2 id="gameplay-flow">Gameplay Flow</h2>
+<h3 id="during-play">During Play</h3>
+<ol>
+<li><strong>Temporary Despair</strong> accumulates from various sources</li>
+<li><strong>Players choose</strong> when to use Resist action (3 Resonance → -1 Temp Despair)</li>
+<li><strong>Resource management</strong> becomes crucial for survival</li>
+</ol>
+<h3 id="long-rest-process">Long Rest Process</h3>
+<ol>
+<li><strong>Resonance restored</strong> to 10</li>
+<li><strong>Temp Despair conversion</strong>: floor(temp/3) becomes permanent despair</li>
+<li><strong>Temp Despair cleared</strong> to 0</li>
+<li><strong>Fresh start</strong> for the next day</li>
+</ol>
+<h3 id="dm-tools">DM Tools</h3>
+<ul>
+<li><strong>Divine Influence</strong>: Track and set active divine corruption</li>
+<li><strong>Psychic Stain</strong>: Apply temporary despair effects</li>
+<li><strong>Mutation System</strong>: Track divine marks and mutations</li>
+<li><strong>Dice Rolling</strong>: d100 rolls for divine influence</li>
+<li><strong>History Logging</strong>: Complete action and roll history</li>
+</ul>
+<h2 id="technical-features">Technical Features</h2>
+<h3 id="no-auto-loading">No Auto-Loading</h3>
+<ul>
+<li>Application starts with a fresh character sheet</li>
+<li>Players must manually load saved characters</li>
+<li>Prevents accidental overwrites and ensures intentional character loading</li>
+</ul>
+<h3 id="manual-persistence">Manual Persistence</h3>
+<ul>
+<li><strong>Save Button</strong>: Manually save character state to browser storage</li>
+<li><strong>Load Button</strong>: Manually load previously saved character</li>
+<li><strong>Export</strong>: Download character as JSON file</li>
+<li><strong>Import</strong>: Upload and load character from JSON file</li>
+</ul>
+<h3 id="view-management">View Management</h3>
+<ul>
+<li><strong>Player View</strong>: Essential tracking and player actions only</li>
+<li><strong>DM View</strong>: Complete feature set including mutation tracking, divine influence, and DM tools</li>
+<li><strong>Responsive Toggle</strong>: Instant switching between views</li>
+</ul>
+<h2 id="interface-elements">Interface Elements</h2>
+<h3 id="progress-bars">Progress Bars</h3>
+<ul>
+<li>Visual representation of Egregor and Despair scores</li>
+<li>Clear milestone indicators at key thresholds</li>
+<li>Instant visual feedback for score changes</li>
+</ul>
+<h3 id="resonance-pool">Resonance Pool</h3>
+<ul>
+<li>Visual circles representing available Resonance Points</li>
+<li>Clear indication of spent vs available resources</li>
+<li>Instant updates on expenditure</li>
+</ul>
+<h3 id="temporary-despair-tracking">Temporary Despair Tracking</h3>
+<ul>
+<li>Visual boxes showing current Temporary Despair level</li>
+<li>Support for high accumulation (up to 15 boxes)</li>
+<li>Clear visual feedback for resist actions</li>
+</ul>
+<h3 id="history-system">History System</h3>
+<ul>
+<li>Comprehensive logging of all actions and rolls</li>
+<li>Timestamped entries for session tracking</li>
+<li>Clearable history for new sessions</li>
+</ul>
+<h2 id="installation-usage">Installation &amp; Usage</h2>
+<ol>
+<li><strong>Open index.html</strong> in any modern web browser</li>
+<li><strong>No server required</strong> - runs entirely client-side</li>
+<li><strong>Enter character name</strong> and begin tracking</li>
+<li><strong>Use view toggle</strong> to switch between Player and DM views</li>
+<li><strong>Save progress</strong> manually using the Save button</li>
+</ol>
+<h2 id="file-structure">File Structure</h2>
+<ul>
+<li><code>index.html</code> - Main interface with Player/DM view toggle</li>
+<li><code>script.js</code> - Core tracking logic and mechanics</li>
+<li><code>styles.css</code> - Visual styling and responsive design</li>
+<li><code>print.css</code> - Print-optimized layout</li>
+<li><code>data.js</code> - Game data, mutations, and reference tables</li>
+</ul>
+<h2 id="version-history">Version History</h2>
+<p><strong>v2.0 - Final Calibration</strong>
+- Added Player/DM view toggle
+- Implemented manual save/load system (no auto-loading)
+- Corrected Long Rest mechanics (Temp→Permanent by multiples of 3)
+- Fixed Resist action (3 Resonance → -1 Temp)
+- Added comprehensive character reset functionality
+- Enhanced UI feedback and history tracking</p>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

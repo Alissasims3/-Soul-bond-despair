@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Unseen Eye - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>The Unseen Eye</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <hr />
+<h2 id="the-unseen-eye">🧿 <strong>The Unseen Eye</strong></h2>
+<p><em>A psychic brand. A prison. A masterpiece of devotion.</em></p>
+<hr />
+<h3 id="visual-description">🔥 <strong>Visual Description</strong></h3>
+<blockquote>
+<p>A single, elegant, stylized eye glows in golden-iron light at the nape of her neck, just beneath the hairline. The eye is complex: delicate lashes arc in runic patterns, the sclera hums with dull warmth, and the iris, though luminous, is <strong>fractured</strong>—like a mirror that has been cracked from within.</p>
+<p>Under moonlight, the pupil <strong>contracts and dilates</strong> slowly, almost as if breathing. When exposed to intense psychic energy (especially involving Xevir), the eye flares brightly, and the <strong>shattered iris shifts</strong>—for a split second forming the image of <strong>a throne</strong>, <strong>a mask</strong>, or <strong>a child reaching for a crown</strong>.</p>
+</blockquote>
+<hr />
+<h3 id="symbolism">🕯️ <strong>Symbolism</strong></h3>
+<ul>
+<li>
+<p><strong>The Eye Itself</strong>: A direct manifestation of Xevir’s gaze—beautiful, divine, and controlling. It is not a symbol of wisdom or enlightenment, but of <em>possession</em>.</p>
+</li>
+<li>
+<p><strong>Placement</strong>: On the back of the neck—visible to everyone but Isolde herself. A cruel irony: her friends can see she is marked, but she cannot. A perfect metaphor for <strong>control through ignorance</strong>.</p>
+</li>
+<li>
+<p><strong>The Shattered Iris</strong>: The moment of the “False Victory” frozen in time, etched into her flesh. She did not see the truth—and so she was <em>branded</em> with the lie.</p>
+</li>
+</ul>
+<hr />
+<h3 id="xevirs-message-delivered-telepathically-the-moment-it-appears">💬 <strong>Xevir's Message (delivered telepathically the moment it appears):</strong></h3>
+<blockquote>
+<p><em>“You sought truth beyond the veil, and so I gave you an eye that sees only what I allow. Let it watch the world for you, my daughter. You have seen enough.”</em></p>
+</blockquote>
+<hr />
+<h3 id="narrative-mechanics-optional">🧠 <strong>Narrative Mechanics (Optional)</strong></h3>
+<p>If you want this scar to have a mechanical or narrative weight, consider the following options:</p>
+<h4 id="passive-effect-divine-surveillance">✴️ <strong>Passive Effect – Divine Surveillance</strong></h4>
+<p>Isolde cannot be <strong>scryed upon</strong> by normal means—but Xevir always knows her general emotional state and location. (DM fiat or once per long rest.)</p>
+<h4 id="moonlight-trigger">🌙 <strong>Moonlight Trigger</strong></h4>
+<p>Under moonlight, allies who pass a DC 18 Insight check can tell that the eye is <em>watching them back</em>.</p>
+<h4 id="plot-hook-mirror-eye-syndrome">🧩 <strong>Plot Hook – "Mirror-Eye Syndrome"</strong></h4>
+<p>In Season Two (post-rewind), Isolde begins to feel a “phantom” presence behind her every time she speaks Xevir’s name. Sometimes, <strong>what she says isn’t what she meant to say.</strong></p>
+<hr />
+<h2 id="ai-art-prompt-the-unseen-eye">🎨 AI ART PROMPT — “The Unseen Eye”</h2>
+<p>Here's your <strong>full, tuned prompt</strong> for art generation:</p>
+<blockquote>
+<p><strong>Prompt:</strong>
+<em>A close-up, atmospheric shot focusing on the back of a pale elven woman's neck. There is an intricate, glowing tattoo just below her hairline. The tattoo is in the shape of a single, elegant, stylized eye. The eye glows with a soft, internal golden-iron light, and its iris is subtly fractured, like a shattered mirror. The tattoo pulses faintly as if alive. The scene is bathed in dim, silvery moonlight, casting ethereal shadows across her silken white hair. The overall mood is one of haunting beauty, with a touch of divine menace.</em></p>
+<p><strong>Style:</strong> Dark fantasy digital painting, cinematic chiaroscuro, high detail, mystical atmosphere.</p>
+<p><strong>Keywords:</strong> glowing tattoo, stylized eye, shattered mirror iris, golden light, ethereal, unsettling beauty, dark fantasy, psychic scar, divine surveillance, god mark, haunting, symbolic, eerie moonlight.</p>
+</blockquote>
+<hr />
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

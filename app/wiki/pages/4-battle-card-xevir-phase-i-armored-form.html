@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Battle Card Xevir Phase I Armored Form - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>4 Battle Card Xevir Phase I Armored Form</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <hr />
+<h1 id="battle-card-xevir-phase-i-armored-form">🎴 Battle Card – Xevir (Phase I: Armored Form)</h1>
+<p><strong>The Boundless Despair</strong>
+<em>Deity-Class Entity (CR 25, Phase I)</em>
+<strong>Alignment:</strong> Lawful Evil · <strong>Race:</strong> Aberrant Divine Egregor
+<strong>Tags:</strong> #GodOfLonging #PsychicWarlock #DespairIncarnate #BBEG</p>
+<hr />
+<h3 id="core-stats">📊 Core Stats</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Score</th>
+<th>Mod</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STR</td>
+<td>20</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>DEX</td>
+<td>18</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>CON</td>
+<td>24</td>
+<td>+7</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>22</td>
+<td>+6</td>
+</tr>
+<tr>
+<td>WIS</td>
+<td>20</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>CHA</td>
+<td>26</td>
+<td>+8</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>AC:</strong> 24 (Symbiotic Armor)</li>
+<li><strong>HP:</strong> 480</li>
+<li><strong>Speed:</strong> 40 ft / teleport 60 ft</li>
+<li><strong>Saving Throws:</strong> INT +12, WIS +11, CHA +14</li>
+<li><strong>Proficiency:</strong> +8</li>
+<li><strong>Legendary Resistances:</strong> 3/day</li>
+</ul>
+<hr />
+<h3 id="legendary-actions-3round">🌌 Legendary Actions (3/round)</h3>
+<ul>
+<li><strong>Subtle Glimpse:</strong> INT save DC 22 or lose a memory (−1 INT mod until restored)</li>
+<li><strong>Tendril Lash:</strong> +14 to hit, 3d8+8 psychic</li>
+<li><strong>Eldritch Step:</strong> Teleport 60 ft in shadow or toward fear-source</li>
+</ul>
+<hr />
+<h3 id="lair-actions-initiative-20">🕷️ Lair Actions (Initiative 20)</h3>
+<ul>
+<li><strong>Ceiling Veins:</strong> Dex save DC 15 or lose reaction</li>
+<li><strong>Psychic Hum (Initiative 10):</strong> Int save DC 14 vs 2d6 psychic</li>
+</ul>
+<hr />
+<h3 id="primary-attacks">⚔️ Primary Attacks</h3>
+<ul>
+<li>
+<p><strong>Eldritch Tendril (Reach 30 ft):</strong> +14 to hit, 3d8+8 psychic</p>
+</li>
+<li>
+<p>Fail: Save DC 22 CON or INT drops by 1 (cumulative)</p>
+</li>
+<li>
+<p><strong>Whispers of Submission (Recharge 5–6):</strong></p>
+</li>
+<li>
+<p>All within 60 ft: WIS save DC 19 or become Charmed + take 4d6 psychic</p>
+</li>
+</ul>
+<hr />
+<h3 id="defenses">🛡️ Defenses</h3>
+<ul>
+<li>
+<p><strong>Symbiotic Armor:</strong> Resistant to fire, radiant, psychic</p>
+</li>
+<li>
+<p>Immune to nonmagical weapons</p>
+</li>
+<li><strong>Armor Cracks</strong> when hit by radiant crit or max-damage egregor weapon</li>
+<li>
+<p><strong>Mask of Infinite Faces:</strong></p>
+</li>
+<li>
+<p>Immune to all Insight/Divination checks</p>
+</li>
+<li>Mirror Illusion (1/day): Clone that mimics Aisyle’s stats</li>
+</ul>
+<hr />
+<h3 id="special-traits">📉 Special Traits</h3>
+<ul>
+<li><strong>Contagion of Longing:</strong> Enemies within 30 ft have Disadvantage on Persuasion and Insight checks</li>
+<li><strong>Egregor Leech:</strong> Whenever someone fails a save vs Xevir, he regains 10 HP</li>
+<li><strong>Emotional Infection:</strong> Failed save increases target’s Despair Score by 1</li>
+</ul>
+<hr />
+<h3 id="weaknesses">🕊️ Weaknesses</h3>
+<ul>
+<li>Vulnerable to radiant + true fire (Aisyle’s plasma blood)</li>
+<li>Losing Mask drops immunity to memory magic</li>
+<li>Critical egregor clash may cause Xevir to lose legendary resistances</li>
+</ul>
+<hr />
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>
