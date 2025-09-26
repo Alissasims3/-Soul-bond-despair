@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Prophet Malk - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>4 Prophet Malk</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <p><strong>Prophet Malk</strong>, also known as <strong>Junior Priest Malk</strong>, is a character who serves as a <strong>covert agent and evangelist for the Dark Majesty Cult</strong>, outwardly masquerading as a priest of Naivara.</p>
+<p>Here's a breakdown of Prophet Malk:</p>
+<ul>
+<li>
+<p><strong>Identity and Role</strong></p>
+<ul>
+<li><strong>Race/Type:</strong> He is a human, functioning as a cleric, though his true alignment and methods are deceptive.</li>
+<li><strong>Public Persona:</strong> He presents himself as a <strong>spiritual guide</strong> in caravans and a priest of Naivara. He appears enthusiastic, poetic, and slightly unhinged. In the Green Church District of Hallows Edge, he potentially influences schools or public services.</li>
+<li><strong>True Allegiance:</strong> Malk is a member of <strong>The Fanatical Zealots</strong>, a sub-cell of the <strong>Dark Majesty Cult</strong>, which is Xevir's official and mandatory faith. He is a fully committed zealot. His allegiance to the Dark Majesty Cult means he serves Xevir, the God of Longing.</li>
+<li><strong>True Belief:</strong> While outwardly a Naivara priest, he <strong>reinterprets Naivara’s doctrine</strong> through the lens of Xevir’s "beautiful decay". He secretly serves a form of Naivara called "The Death That Remembers" but distorts its principles. He is seen as a "necessary instability" and a "firestarter" by other zealots like Brother Halvard.</li>
+</ul>
+</li>
+<li>
+<p><strong>Methods and Influence</strong></p>
+<ul>
+<li><strong>Deceptive Ceremonies:</strong> He oversees funerals and rites, but his "Naivaran" ceremonies may, in fact, <strong>offer the dead to Xevir</strong>.</li>
+<li><strong>Memory-Plague Seeds:</strong> He can plant <strong>"memory-plague seeds" in mourning minds</strong>, a tactic to spread Xevir's influence.</li>
+<li><strong>Hidden Hymns:</strong> He leads public burials and sermons that contain <strong>hidden hymns to Xevir</strong>.</li>
+<li><strong>Propaganda:</strong> He contributes to the <strong>"Survival &amp; Sanity Guides"</strong> section of the Hallows Press, providing tips for resisting Xevir's influence, coping with psychic strain, and remembering one's own face.</li>
+<li><strong>Psychological Manipulation:</strong> He, along with other zealots, spreads Xevir's influence through psychological manipulation, emotional infection, and spiritual erosion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Connections and Plot Hooks</strong></p>
+<ul>
+<li><strong>Zealot Network:</strong> He is part of the coordinated network of Fanatical Zealots, including Brother Halvard and Sister Lira, who infiltrate communities and disguise their true roles.</li>
+<li><strong>Corruption Tracking:</strong> Signs of his activities include unmarked graves yielding fungi, indicating his burial rites.</li>
+<li><strong>Danger Level:</strong> He is considered a high-danger NPC who may attempt open conversion rituals if left unchecked.</li>
+<li><strong>Specific Hooks:</strong> Grave sites where Malk performed burials may begin to <strong>sprout blue fungus</strong>, which in turn attracts Sporekind scouts.</li>
+</ul>
+</li>
+</ul>
+<p>In essence, Prophet Malk is a dangerous, morally ambiguous figure who uses the guise of spiritual comfort and healing to further the agenda of Xevir's mind-controlling cult, twisting traditional rites to serve a dark purpose.</p>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

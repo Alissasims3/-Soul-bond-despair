@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychic Stains And Curses - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Psychic Stains And Curses</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <h1 id="psychic-stains-and-curses">Psychic Stains and Curses</h1>
+<p>This document describes the interaction between psychic stains, temporary despair, and corruption effects in the Soul's Harmony system.</p>
+<h2 id="psychic-stain-mechanics">Psychic Stain Mechanics</h2>
+<h3 id="core-rule-failure-applies-all-three">Core Rule: Failure Applies All Three</h3>
+<p>When a <strong>Psychic Stain</strong> check <strong>fails</strong>, it <strong>always</strong> applies all three effects in strict order:</p>
+<ol>
+<li><strong>Psychic Damage</strong> (as written in the source)</li>
+<li><strong>Temporary Despair Gain</strong> (default +1 unless source specifies)  </li>
+<li><strong>Whisper/Corruption</strong> (minor corruption appropriate to the source)</li>
+</ol>
+<p><strong>Important</strong>: This is not optional - failure means all three effects occur.</p>
+<h3 id="success-vs-failure">Success vs Failure</h3>
+<h4 id="success-save-made">Success (Save Made)</h4>
+<ul>
+<li><strong>Reduced or no psychic damage</strong> (as specified by source)</li>
+<li><strong>No temporary despair gain</strong></li>
+<li><strong>No whisper or corruption effect</strong></li>
+<li>Follow the specific success conditions of the source</li>
+</ul>
+<h4 id="failure-save-failed">Failure (Save Failed)</h4>
+<ul>
+<li><strong>Full psychic damage</strong> (as written)</li>
+<li><strong>Temporary despair gain</strong> (+1 default, or amount specified by source)</li>
+<li><strong>Immediate conversion check</strong> (if temp reaches 3, converts to permanent)</li>
+<li><strong>Whisper/corruption applied</strong> (appropriate to the entity/source)</li>
+</ul>
+<h2 id="temporary-despair-integration">Temporary Despair Integration</h2>
+<h3 id="conversion-rules">Conversion Rules</h3>
+<ul>
+<li><strong>3 Temporary → 1 Permanent</strong>: When temp despair reaches 3, immediately convert</li>
+<li><strong>Chained Conversions</strong>: Large temp gains can trigger multiple conversions</li>
+<li><strong>Algorithm</strong>: <code>temp += N; while (temp &gt;= 3) { temp -= 3; perm += 1; }</code></li>
+<li><strong>Remainder Preserved</strong>: Amounts &gt; 3 preserve remainder after conversion</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<h4 id="psychic-stain-with-conversion">Psychic Stain with Conversion</h4>
+<div class="codehilite"><pre><span></span><code>Character has 2 temp despair
+Psychic Stain failure:
+1. Take 4 psychic damage
+2. Gain +2 temp despair (2 + 2 = 4 total)
+3. Automatic conversion: 4 temp → 1 conversion → 1 temp remains  
+4. Whisper: &quot;The void whispers your name...&quot;
+Result: 1 temp despair, +1 permanent despair
+</code></pre></div>
+
+<h4 id="multiple-conversions">Multiple Conversions</h4>
+<div class="codehilite"><pre><span></span><code>Character has 1 temp despair  
+Massive psychic event (+8 temp):
+1. Apply damage
+2. Gain +8 temp (1 + 8 = 9 total)
+3. Convert: 9 temp → 3 conversions → 0 temp remains
+4. Apply corruption effects
+Result: 0 temp despair, +3 permanent despair
+</code></pre></div>
+
+<h2 id="source-specific-behaviors">Source-Specific Behaviors</h2>
+<h3 id="divine-entity-stains">Divine Entity Stains</h3>
+<h4 id="xevir-longing">Xevir (Longing)</h4>
+<ul>
+<li><strong>Damage</strong>: Emotional/psychic pain from unfulfilled desires</li>
+<li><strong>Temp Gain</strong>: +1 (standard)</li>
+<li><strong>Whisper</strong>: Related to longing, desire, or heartbreak</li>
+<li><strong>Example</strong>: "You feel the ache of every unfulfilled dream..."</li>
+</ul>
+<h4 id="ikris-vengeance">Ikris (Vengeance)</h4>
+<ul>
+<li><strong>Damage</strong>: Burning psychic pain from injustice</li>
+<li><strong>Temp Gain</strong>: +1 (standard), +2 for major betrayals</li>
+<li><strong>Whisper</strong>: Related to justice, retribution, or rage</li>
+<li><strong>Example</strong>: "The fire of righteous anger burns within you..."</li>
+</ul>
+<h4 id="naivara-memory">Naivara (Memory)</h4>
+<ul>
+<li><strong>Damage</strong>: Disorienting psychic confusion</li>
+<li><strong>Temp Gain</strong>: +1 (standard)</li>
+<li><strong>Whisper</strong>: Memory-related confusion or false recollections</li>
+<li><strong>Example</strong>: "Your memories shift and blur like smoke..."</li>
+</ul>
+<h4 id="hive-father-unity">Hive Father (Unity)</h4>
+<ul>
+<li><strong>Damage</strong>: Isolating psychic pain from separation</li>
+<li><strong>Temp Gain</strong>: +1 (standard)</li>
+<li><strong>Whisper</strong>: Related to loneliness, connection, or collective consciousness</li>
+<li><strong>Example</strong>: "You feel utterly alone in a vast, uncaring universe..."</li>
+</ul>
+<h4 id="crawling-choir-madness">Crawling Choir (Madness)</h4>
+<ul>
+<li><strong>Damage</strong>: Reality-bending psychic trauma</li>
+<li><strong>Temp Gain</strong>: +1 to +3 depending on severity</li>
+<li><strong>Whisper</strong>: Cosmic truths, forbidden knowledge, or reality distortions</li>
+<li><strong>Example</strong>: "You glimpse the truth behind reality's facade..."</li>
+</ul>
+<h2 id="implementation-guidelines">Implementation Guidelines</h2>
+<h3 id="for-dms">For DMs</h3>
+<ol>
+<li><strong>Always apply all three effects on failure</strong> - no picking and choosing</li>
+<li><strong>Use appropriate whispers</strong> that match the source entity</li>
+<li><strong>Consider temp gain modifiers</strong> for especially severe stains</li>
+<li><strong>Remember conversion is automatic</strong> - no separate check needed</li>
+</ol>
+<h3 id="for-players">For Players</h3>
+<ol>
+<li><strong>Track temp despair carefully</strong> - it builds up quickly</li>
+<li><strong>Long rests clear temp</strong> but not permanent despair</li>
+<li><strong>Conversions are immediate</strong> - no delaying or preventing them</li>
+<li><strong>Thresholds use permanent only</strong> - temp doesn't count except via conversion</li>
+</ol>
+<h3 id="for-system-implementation">For System Implementation</h3>
+<div class="codehilite"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">applyPsychicStain</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span><span class="w"> </span><span class="nx">damageAmount</span><span class="p">,</span><span class="w"> </span><span class="nx">tempGain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">whisperText</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Order is critical - must be exactly as specified</span>
+
+<span class="w">    </span><span class="c1">// 1. Apply psychic damage first</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">damageAmount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">applyDamage</span><span class="p">(</span><span class="nx">damageAmount</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;psychic&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="sb">`You take </span><span class="si">${</span><span class="nx">damageAmount</span><span class="si">}</span><span class="sb"> psychic damage!`</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;error&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 2. Gain temporary despair and handle conversion</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">previousTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">previousPerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">despairScore</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">tempGain</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">conversions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">despairScore</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">conversions</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">conversions</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">checkDespairThresholds</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// 3. Apply whisper/corruption last</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">showNotification</span><span class="p">(</span><span class="sb">`Psychic Stain applied! </span><span class="si">${</span><span class="nx">whisperText</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;choir&#39;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Log all effects in order</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">logEntries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">damageAmount</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="nx">logEntries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`Psychic damage: </span><span class="si">${</span><span class="nx">damageAmount</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">logEntries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`+</span><span class="si">${</span><span class="nx">tempGain</span><span class="si">}</span><span class="sb"> temp despair (</span><span class="si">${</span><span class="nx">previousTemp</span><span class="si">}</span><span class="sb">→</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">tempDespair</span><span class="si">}</span><span class="sb">)`</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">conversions</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="nx">logEntries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">conversions</span><span class="si">}</span><span class="sb"> conversion</span><span class="si">${</span><span class="nx">conversions</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;s&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="si">}</span><span class="sb"> (</span><span class="si">${</span><span class="nx">previousPerm</span><span class="si">}</span><span class="sb">→</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">despairScore</span><span class="si">}</span><span class="sb"> perm)`</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">logEntries</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`Whisper: &quot;</span><span class="si">${</span><span class="nx">whisperText</span><span class="si">}</span><span class="sb">&quot;`</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addToHistory</span><span class="p">(</span><span class="sb">`Psychic Stain: </span><span class="si">${</span><span class="nx">logEntries</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">updateDisplay</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="interaction-with-other-systems">Interaction with Other Systems</h2>
+<h3 id="bond-inversions">Bond Inversions</h3>
+<ul>
+<li><strong>Psychic stains can trigger bond inversions</strong> if despair thresholds are crossed</li>
+<li><strong>Inverted bonds may modify stain resistance</strong> or amplify effects</li>
+<li><strong>Some bonds provide protection</strong> against specific entity types</li>
+</ul>
+<h3 id="resonance-spending">Resonance Spending</h3>
+<ul>
+<li><strong>Resist ability</strong> can reroll failed saves against psychic stains</li>
+<li><strong>Cost varies</strong> based on source and severity</li>
+<li><strong>Success negates all three effects</strong> - partial resistance not available</li>
+</ul>
+<h3 id="mutation-triggers">Mutation Triggers</h3>
+<ul>
+<li><strong>Only permanent despair triggers mutations</strong> - temp despair does not count</li>
+<li><strong>Conversions from stains can immediately trigger</strong> threshold effects</li>
+<li><strong>Multiple conversions</strong> from one stain can cascade threshold effects</li>
+</ul>
+<h2 id="balancing-notes">Balancing Notes</h2>
+<h3 id="for-dms_1">For DMs</h3>
+<ul>
+<li><strong>Psychic stains are serious</strong> - they always have consequences on failure</li>
+<li><strong>Use sparingly</strong> for dramatic moments or major supernatural encounters  </li>
+<li><strong>Consider the cumulative effect</strong> - temp despair builds up across encounters</li>
+<li><strong>Long rests provide relief</strong> - allow characters to recover between major events</li>
+</ul>
+<h3 id="design-intent">Design Intent</h3>
+<ul>
+<li><strong>Psychological horror</strong> - the mind is vulnerable and degradation is cumulative</li>
+<li><strong>Meaningful choices</strong> - spending resonance to resist becomes critical</li>
+<li><strong>Escalating tension</strong> - temp builds toward inevitable conversion</li>
+<li><strong>Entity personality</strong> - different sources create different experiences</li>
+</ul>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid</h2>
+<ol>
+<li><strong>❌ Applying only damage or whisper</strong> - must be all three on failure</li>
+<li><strong>❌ Delaying conversions</strong> - they happen immediately when temp ≥ 3  </li>
+<li><strong>❌ Using temp for thresholds</strong> - only permanent despair counts</li>
+<li><strong>❌ Inconsistent whispers</strong> - match the entity's nature and influence</li>
+<li><strong>❌ Forgetting long rest relief</strong> - temp despair should clear on rest</li>
+</ol>
+<h2 id="quick-reference">Quick Reference</h2>
+<h3 id="failure-checklist">Failure Checklist</h3>
+<ul>
+<li>[ ] Apply psychic damage (as written)</li>
+<li>[ ] Gain temporary despair (+1 default)  </li>
+<li>[ ] Check for immediate conversion (temp ≥ 3)</li>
+<li>[ ] Apply whisper/corruption (entity-appropriate)</li>
+<li>[ ] Log all effects in order</li>
+<li>[ ] Update displays</li>
+</ul>
+<h3 id="conversion-reminder">Conversion Reminder</h3>
+<div class="codehilite"><pre><span></span><code>temp += amount
+while (temp &gt;= 3):
+    temp -= 3
+    perm += 1
+    check_thresholds()
+</code></pre></div>
+
+<p>This system ensures psychic stains remain a serious and consistent threat while providing clear, predictable mechanics for both players and DMs.</p>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

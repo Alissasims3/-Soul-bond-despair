@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malzarius The First Sun - Soul's Harmony Lore</title>
+    <link rel="stylesheet" href="../assets/wiki.css">
+</head>
+<body class="">
+    <header class="wiki-header">
+        <div class="nav-container">
+            <a href="../index.html" class="back-button">← Back to Library</a>
+            <h1>Malzarius The First Sun</h1>
+            <div class="page-controls">
+                <button id="playerModeToggle" class="mode-toggle">👁️ Player Mode</button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="wiki-content">
+        <article>
+            <h1 id="malzarius-the-first-sun">🔥 Malzarius the First Sun</h1>
+<p><em>Legendary Sorcerer | Mythic Figure | Embodiment of Rebellion and Flame</em></p>
+<hr />
+<h2 id="overview">✨ Overview</h2>
+<ul>
+<li><strong>Name:</strong> Malzarius the First Sun  </li>
+<li><strong>Titles:</strong> The Burning Prophet, Ember of Rebellion, Spark-Bearer  </li>
+<li><strong>Race:</strong> Unknown (rumored to be elven or celestial-blooded)  </li>
+<li><strong>Class/Role:</strong> Legendary Sorcerer (Fire &amp; Forbidden Arcana)  </li>
+<li><strong>Status:</strong> Deceased in body, fragmented in soul — <em>not truly gone</em>  </li>
+<li><strong>Domain Focus:</strong> Fire, Light, Rebellion, Forbidden Arcana  </li>
+<li><strong>Alignment (in myth):</strong> Chaotic Good or Chaotic Neutral  </li>
+<li><strong>Symbol:</strong> A flaming spiral or sunburst fractured down the middle</li>
+</ul>
+<hr />
+<h2 id="lore-belief">🔥 Lore &amp; Belief</h2>
+<blockquote>
+<p><em>"Malzarius did not die — he fractured. Each spark of him ignites the hearts of those who remember."</em></p>
+</blockquote>
+<ul>
+<li>Malzarius led one of the last major rebellions against <strong>Xevir</strong>, wielding ancient, forbidden flame.</li>
+<li>Upon his defeat, his <strong>soul shattered</strong> into scattered <em>Sparks of the First Sun</em> — hidden in relics, people, and places.</li>
+<li>Followers believe these sparks awaken inner power, forgotten magic, or courage to resist.</li>
+<li>They await the <strong>Rising Flame</strong>, a future when Malzarius will be reborn through a new vessel (perhaps <strong>Volcanix</strong>).</li>
+<li>His cult was <strong>brutally suppressed</strong> — followers burned, their knowledge erased or twisted by Xevir’s enforcers.</li>
+</ul>
+<hr />
+<h2 id="practices-followers">🕯️ Practices &amp; Followers</h2>
+<ul>
+<li><strong>Flame-Codes:</strong> Speak in flickers of torchlight, candlelight, and ember patterns.</li>
+<li><strong>Ash Symbols:</strong> Etch glowing glyphs into the ashes of destroyed cities or shrines.</li>
+<li><strong>Worship Style:</strong> Nomadic — a <strong>campfire circle</strong> is often more sacred than any temple.</li>
+<li><strong>Beliefs:</strong> Fire is not just destruction, but memory and rebellion. Every spark carries purpose.</li>
+</ul>
+<h3 id="common-followers">Common Followers:</h3>
+<ul>
+<li>Fire sorcerers  </li>
+<li>Anarchist historians  </li>
+<li>Warlocks bound to ember spirits  </li>
+<li>Librarians and memory-keepers  </li>
+<li>Survivors of Xevir’s purges</li>
+</ul>
+<hr />
+<h2 id="dm-hooks">🧠 DM Hooks</h2>
+<ul>
+<li>A spark could awaken a player’s hidden power, dream, or memory.</li>
+<li>A relic might whisper in firelight, revealing secrets — or lies.<blockquote>
+<p><em>"You... carry the warmth. I see it in your eyes. The First Sun burns in you still..."</em></p>
+</blockquote>
+</li>
+</ul>
+        </article>
+    </main>
+    
+    <footer class="wiki-footer">
+        <p>Part of the Soul's Harmony Lore Library</p>
+    </footer>
+    
+    <script>
+        // Player/GM mode toggle
+        const toggle = document.getElementById('playerModeToggle');
+        const body = document.body;
+        
+        toggle.addEventListener('click', () => {
+            const isPlayerMode = body.classList.toggle('player-mode');
+            toggle.textContent = isPlayerMode ? '🎭 GM Mode' : '👁️ Player Mode';
+            localStorage.setItem('wikiPlayerMode', isPlayerMode);
+        });
+        
+        // Load saved mode
+        if (localStorage.getItem('wikiPlayerMode') === 'true') {
+            toggle.click();
+        }
+    </script>
+</body>
+</html>

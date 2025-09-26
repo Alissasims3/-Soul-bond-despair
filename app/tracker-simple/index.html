@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul's Harmony Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1>Soul's Harmony Tracker</h1>
+            <p>D&D 5e Homebrew Character Sheet</p>
+            <div class="view-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="viewToggleSwitch">
+                    <span class="slider round"></span>
+                </label>
+                <span id="viewToggleLabel">Player View</span>
+            </div>
+        </header>
+
+        <div class="character-info">
+            <div class="character-name">
+                <label for="characterName">Character Name:</label>
+                <input type="text" id="characterName" placeholder="Enter character name">
+            </div>
+            <div class="quick-actions">
+                <button id="longRestBtn" class="action-btn">Long Rest</button>
+                <button id="resetBtn" class="action-btn reset-btn">Reset Character</button>
+                <button id="saveBtn" class="action-btn">Save</button>
+                <button id="loadBtn" class="action-btn">Load</button>
+                <button id="exportBtn" class="action-btn">Export</button>
+                <input type="file" id="importBtn" accept=".json" style="display: none;">
+                <button onclick="document.getElementById('importBtn').click()" class="action-btn">Import</button>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-column">
+                <section class="tracker-section egregor-section">
+                    <h2>Egregor Score <span class="score-display" id="egregorDisplay">0</span>/20</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="egregorBar"></div>
+                    </div>
+                    <div class="threshold-status" id="egregorThreshold">No threshold reached</div>
+                </section>
+
+                <section class="tracker-section resonance-section">
+                    <h2>Resonance Points <span class="score-display" id="resonanceDisplay">0</span>/10</h2>
+                    <div class="resonance-pool" id="resonancePool"></div>
+                    <div class="resonance-actions dm-view-only">
+                        <button class="resonance-btn" data-cost="1" data-action="resist">Reroll Despair Save (1)</button>
+                        <button class="resonance-btn" data-cost="2" data-action="empower">Empower Ability (2)</button>
+                        <button class="resonance-btn" data-cost="3" data-action="gift">Use Bond's Gift (3)</button>
+                    </div>
+                </section>
+
+                <section class="tracker-section bonds-section">
+                    <h2>Anchored Bonds <span class="bonds-count" id="bondsCount">0</span>/3</h2>
+                    <div class="bonds-container">
+                        </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="tracker-section despair-section">
+                    <h2>Despair Score <span class="score-display" id="despairDisplay">0</span>/20</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="despairBar"></div>
+                    </div>
+                    <div class="divine-influence dm-view-only" id="divineInfluence">
+                        <h3>Divine Influence</h3>
+                        <div class="influence-options">
+                             <button class="influence-btn" data-deity="xevir">🩸 Xevir</button>
+                             <button class="influence-btn" data-deity="ikris">🔥 Ikris</button>
+                             <button class="influence-btn" data-deity="naivara">🌫️ Naivara</button>
+                             <button class="influence-btn" data-deity="hive">👑 Hive</button>
+                             <button class="influence-btn" data-deity="choir">🧠 Choir</button>
+                        </div>
+                        <div class="current-influence" id="currentInfluence">No influence selected</div>
+                    </div>
+                </section>
+
+                <section class="tracker-section temp-despair-section">
+                    <h2>Temporary Despair</h2>
+                    <div class="temp-despair-boxes" id="tempDespairBoxes"></div>
+                    <div class="temp-controls">
+                        <button id="gainTempBtn" class="temp-btn gain-btn dm-view-only">+1 Temp</button>
+                        <button id="resistBtn" class="temp-btn resist-btn">Resist (-1 Temp)</button>
+                    </div>
+                </section>
+
+                <section class="tracker-section">
+                    <h2>Log of Divine Marks</h2>
+                    <div id="mutationsLog"></div>
+                </section>
+            </div>
+        </div>
+
+        <div class="dm-view-only">
+             <section class="tracker-section dice-section">
+                <h2>DM Tools</h2>
+                <div class="dice-container">
+                    <div class="dice-group">
+                        <h3>Psychic Stain</h3>
+                        <button id="psychicStainBtn" class="dice-btn">Apply Stain</button>
+                    </div>
+                    <div class="dice-group">
+                        <h3>Divine Influence (d100)</h3>
+                        <button id="rollD100Btn" class="dice-btn">Roll Influence</button>
+                        <div class="dice-result" id="d100Result"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="tracker-section mutations-section">
+                <h2>Divine Marks & Mutations System</h2>
+                <div class="deity-mutations-container">
+                    </div>
+            </section>
+            <section class="tracker-section">
+                 <h3>History & Logs</h3>
+                 <div class="history-container" id="rollHistory"></div>
+                 <button id="clearHistoryBtn" class="clear-btn">Clear History</button>
+            </section>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
